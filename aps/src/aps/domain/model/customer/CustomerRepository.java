@@ -1,20 +1,12 @@
 package aps.domain.model.customer;
 
-public class CustomerRepository {
+public interface CustomerRepository {
 
-    public Customer findCustomerById(int id) {
-        return null;
-    }
+    public Customer findCustomerById(int id);
 
-    public boolean addCustomer(Customer customer) {
-        return Boolean.FALSE;
-    }
+    public boolean addCustomer(Customer customer);
 
-    public boolean removeCustomer(Customer customer) {
-        return Boolean.FALSE;
-    }
+    public boolean removeCustomer(Customer customer);
 
-    public void updateCustomer(Customer customer) {
-
-    }
+    public void updateCustomer(Customer customer);
 }
