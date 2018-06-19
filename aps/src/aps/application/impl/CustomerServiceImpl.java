@@ -6,7 +6,7 @@ import aps.domain.model.customer.Customer;
 public class CustomerServiceImpl implements ICustomerService {
 
     @Override
-    public void registerCustomer() {
+    public void registerNewCustomer(Customer customer) {
 
     }
 

@@ -5,7 +5,8 @@ import java.util.Objects;
 
 public class Customer {
     private int id;
-    private String userName;
+    private String apsUserName;
+    private String apsPassword;
     private String firstName;
     private String surname;
     private String email;
@@ -20,12 +21,20 @@ public class Customer {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getApsPassword() {
+        return apsPassword;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setApsPassword(String apsPassword) {
+        this.apsPassword = apsPassword;
+    }
+
+    public String getApsUserName() {
+        return apsUserName;
+    }
+
+    public void setApsUserName(String apsUserName) {
+        this.apsUserName = apsUserName;
     }
 
     public String getFirstName() {
@@ -74,7 +83,7 @@ public class Customer {
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
         return id == customer.id &&
-                Objects.equals(userName, customer.userName) &&
+                Objects.equals(apsUserName, customer.apsUserName) &&
                 Objects.equals(firstName, customer.firstName) &&
                 Objects.equals(surname, customer.surname) &&
                 Objects.equals(email, customer.email) &&
@@ -84,6 +93,6 @@ public class Customer {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, userName, firstName, surname, email, phoneNumber);
+        return Objects.hash(id, apsUserName, firstName, surname, email, phoneNumber);
     }
 }
