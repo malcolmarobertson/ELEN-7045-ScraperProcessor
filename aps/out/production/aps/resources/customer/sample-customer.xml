@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<customer>
+    <apsUserName>mj</apsUserName>
+    <apsPassword>mjrocks01</apsPassword>
+    <firstName>Michael</firstName>
+    <surname>Jordan</surname>
+    <email>mj@test.com</email>
+
+    <customerBillingAccount>
+        <billingCompany></billingCompany>
+        <billingCompanyId></billingCompanyId>
+    </customerBillingAccount>
+    <customerBillingAccount>
+        <billingCompany></billingCompany>
+        <billingCompanyId></billingCompanyId>
+    </customerBillingAccount>
+    <customerBillingAccount>
+        <billingCompany></billingCompany>
+        <billingCompanyId></billingCompanyId>
+    </customerBillingAccount>
+</customer>

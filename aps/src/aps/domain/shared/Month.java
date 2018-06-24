@@ -1,7 +1,7 @@
 package aps.domain.shared;
 
 /**
- * Enum representing ScrapErrorType Value Object
+ * Enum representing ScrapeErrorCode Value Object
  */
 public enum Month {
     JAN,

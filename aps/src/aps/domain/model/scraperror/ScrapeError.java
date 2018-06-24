@@ -3,18 +3,18 @@ package aps.domain.model.scraperror;
 import java.util.Date;
 import java.util.Objects;
 
-public class ScrapError {
-    private ScrapErrorType scrapErrorTypeCode;
+public class ScrapeError {
+    private ScrapeErrorCode scrapeErrorCode;
     private String description;
     private Date timeOccured;
     private String websiteBaseUrl;
 
-    public ScrapErrorType getScrapErrorTypeCode() {
-        return scrapErrorTypeCode;
+    public ScrapeErrorCode getScrapeErrorCode() {
+        return scrapeErrorCode;
     }
 
-    public void setScrapErrorTypeCode(ScrapErrorType scrapErrorTypeCode) {
-        this.scrapErrorTypeCode = scrapErrorTypeCode;
+    public void setScrapeErrorCode(ScrapeErrorCode scrapeErrorCode) {
+        this.scrapeErrorCode = scrapeErrorCode;
     }
 
     public String getDescription() {
@@ -45,8 +45,8 @@ public class ScrapError {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ScrapError that = (ScrapError) o;
-        return scrapErrorTypeCode == that.scrapErrorTypeCode &&
+        ScrapeError that = (ScrapeError) o;
+        return scrapeErrorCode == that.scrapeErrorCode &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(timeOccured, that.timeOccured) &&
                 Objects.equals(websiteBaseUrl, that.websiteBaseUrl);
@@ -55,6 +55,6 @@ public class ScrapError {
     @Override
     public int hashCode() {
 
-        return Objects.hash(scrapErrorTypeCode, description, timeOccured, websiteBaseUrl);
+        return Objects.hash(scrapeErrorCode, description, timeOccured, websiteBaseUrl);
     }
 }

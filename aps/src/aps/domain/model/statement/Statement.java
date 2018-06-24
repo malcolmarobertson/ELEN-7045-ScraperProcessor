@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * Abstract Statement class which contains all the common fields directly present or derived.
+ * Abstract StatementService class which contains all the common fields directly present or derived.
  * Potentially use the Builder pattern to cater for Requirement 3.2.2 which says:
  * It is expected that additional statement types will identified in future.
  */

@@ -1,6 +1,6 @@
 package aps.infrastructure.persistence.hibernate;
 
-import aps.domain.model.scraperror.ScrapError;
+import aps.domain.model.scraperror.ScrapeError;
 import aps.domain.model.scraperror.ScrapErrorRepository;
 
 /**
@@ -9,22 +9,22 @@ import aps.domain.model.scraperror.ScrapErrorRepository;
 public class ScrapErrorRepositoryHibernate extends HibernateRepository implements ScrapErrorRepository {
 
     @Override
-    public ScrapError findScrapErrorById(int id) {
+    public ScrapeError findScrapErrorById(int id) {
         return null;
     }
 
     @Override
-    public boolean addScrapError(ScrapError ScrapError) {
+    public boolean addScrapError(ScrapeError ScrapeError) {
         return false;
     }
 
     @Override
-    public boolean removeScrapError(ScrapError ScrapError) {
+    public boolean removeScrapError(ScrapeError ScrapeError) {
         return false;
     }
 
     @Override
-    public void updateScrapError(ScrapError ScrapError) {
+    public void updateScrapError(ScrapeError ScrapeError) {
 
     }
 }

@@ -9,7 +9,7 @@ public class ScrapResponse implements Serializable {
     //TODO: To refactor object to contain correct variables.
     //TODO: Should ErrorCode be changed to generic ResponseCode which encompases both success and failure scenarios?
     private String xmlResponse;
-    private String ErrorCode;
+    private String srapeResult;
 
     public String getXmlResponse() {
         return xmlResponse;
@@ -19,11 +19,11 @@ public class ScrapResponse implements Serializable {
         this.xmlResponse = xmlResponse;
     }
 
-    public String getErrorCode() {
-        return ErrorCode;
+    public String getSrapeResult() {
+        return srapeResult;
     }
 
-    public void setErrorCode(String errorCode) {
-        ErrorCode = errorCode;
+    public void setSrapeResult(String srapeResult) {
+        this.srapeResult = srapeResult;
     }
 }

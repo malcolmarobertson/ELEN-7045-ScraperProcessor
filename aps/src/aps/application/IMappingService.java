@@ -1,4 +1,5 @@
 package aps.application;
 
-public interface IMappingService {
+public interface IMappingService<ScrapObject> {
+
 }
