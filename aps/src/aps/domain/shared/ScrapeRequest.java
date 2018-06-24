@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Request Object sent to the Scrap component of the system. Contains the Website URL and Identification and Authentification
  * credentials.
  */
-public class ScrapRequest implements Serializable {
+public class ScrapeRequest implements Serializable {
 
     private String websiteUrl;
     private String userIdentification;

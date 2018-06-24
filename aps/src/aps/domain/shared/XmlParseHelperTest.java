@@ -5,7 +5,7 @@ import org.junit.Before;
 
 import static org.junit.Assert.*;
 
-public class TelkomXmlParseHelperTest {
+public class XmlParseHelperTest {
 
     XmlParseHelper toTest;
     ScrapeObject scrapeObject;

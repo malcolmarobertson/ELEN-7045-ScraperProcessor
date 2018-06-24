@@ -2,11 +2,11 @@ package aps.domain.model.customer;
 
 import aps.domain.model.billingcompany.BillingCompany;
 
-import java.util.Collection;
+import java.util.List;
 
 public class CustomerBillingAccount {
     private BillingCompany billingCompany;
-    private Collection<AccountCredential> accountCredentials;
+    private List<AccountCredential> accountCredentials;
 
     public BillingCompany getBillingCompany() {
         return billingCompany;
@@ -16,11 +16,11 @@ public class CustomerBillingAccount {
         this.billingCompany = billingCompany;
     }
 
-    public Collection<AccountCredential> getAccountCredentials() {
+    public List<AccountCredential> getAccountCredentials() {
         return accountCredentials;
     }
 
-    public void setAccountCredentials(Collection<AccountCredential> accountCredentials) {
+    public void setAccountCredentials(List<AccountCredential> accountCredentials) {
         this.accountCredentials = accountCredentials;
     }
 }
