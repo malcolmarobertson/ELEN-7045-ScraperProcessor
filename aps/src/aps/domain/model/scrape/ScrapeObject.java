@@ -1,14 +1,12 @@
 package aps.domain.model.scrape;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.Date;
+import java.util.List;
 
 @XmlRootElement(name = "scrape-session")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class TelkomScrape {
+public class ScrapeObject {
     @XmlElement(name = "base-url")
     private String baseUrl;
     private String customerName;
@@ -17,8 +15,9 @@ public class TelkomScrape {
     @XmlElement
     private Date date;
 
-    @XmlElement
-    private DataPairs dataPairs;
+    @XmlElementWrapper(name = "datapairs")
+    @XmlElement(name = "datapair")
+    private List<DataPair> dataPairs;
 
     public String getBaseUrl() {
         return baseUrl;
@@ -52,11 +51,11 @@ public class TelkomScrape {
         this.date = date;
     }
 
-    public DataPairs getDataPairs() {
+    public List<DataPair> getDataPairs() {
         return dataPairs;
     }
 
-    public void setDataPairs(DataPairs dataPairs) {
+    public void setDataPairs(List<DataPair> dataPairs) {
         this.dataPairs = dataPairs;
     }
 }

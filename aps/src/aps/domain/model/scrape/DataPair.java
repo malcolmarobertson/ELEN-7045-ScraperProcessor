@@ -1,12 +1,9 @@
 package aps.domain.model.scrape;
 
-import javax.xml.bind.annotation.XmlElement;
-
 public class DataPair {
     private String text;
     private String value;
 
-    @XmlElement
     public String getText() {
         return text;
     }
@@ -19,7 +16,6 @@ public class DataPair {
         return value;
     }
 
-    @XmlElement
     public void setValue(String value) {
         this.value = value;
     }

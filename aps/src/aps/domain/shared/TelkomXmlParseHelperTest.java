@@ -1,6 +1,6 @@
 package aps.domain.shared;
 
-import aps.domain.model.scrape.TelkomScrape;
+import aps.domain.model.scrape.ScrapeObject;
 import org.junit.Before;
 
 import static org.junit.Assert.*;
@@ -8,23 +8,23 @@ import static org.junit.Assert.*;
 public class TelkomXmlParseHelperTest {
 
     XmlParseHelper toTest;
-    TelkomScrape telkomScrape;
+    ScrapeObject scrapeObject;
 
     @Before
     public void init() {
         toTest = new XmlParseHelper();
-        telkomScrape = buildScrapSession();
+        scrapeObject = buildScrapSession();
     }
 
-    private TelkomScrape buildScrapSession() {
-        TelkomScrape telkomScrape = new TelkomScrape();
+    private ScrapeObject buildScrapSession() {
+        ScrapeObject scrapeObject = new ScrapeObject();
         return null;
     }
 
     @org.junit.Test
     public void parseScrapXml() {
-        assertEquals("www.telkom.co.za", toTest.parseScrapXml(getSampleTelkomXmlResponse(), TelkomScrape.class).getBaseUrl());
-//        assertEquals("Account no", toTest.parseScrapXml(getSampleTelkomXmlResponse(), TelkomScrape.class).getDataPairs().getDataPairs().get(0).getText());
+        assertEquals("www.telkom.co.za", toTest.parseScrapXml(getSampleTelkomXmlResponse(), ScrapeObject.class).getBaseUrl());
+        assertEquals("Account no", toTest.parseScrapXml(getSampleTelkomXmlResponse(), ScrapeObject.class).getDataPairs().get(0).getText());
     }
 
     private String getSampleTelkomXmlResponse() {
