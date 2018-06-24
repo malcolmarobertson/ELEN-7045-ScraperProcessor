@@ -7,10 +7,10 @@ import aps.application.util.ScrapeResult;
 import aps.domain.model.scrape.ScrapeObject;
 import aps.domain.shared.ScrapeRequest;
 import aps.domain.shared.ScrapeResponse;
-import aps.domain.shared.XmlParseHelper;
+import aps.domain.shared.GenericXmlParser;
 
 /**
- * This is the class that mimics the module that performs the actual scrapping. It is linked to the Scrapping Component of the
+ * This is the class that mimics the module that performs the actual scrapping. It is integrated to the Scrapping Component of the
  * system.
  */
 public class ScrapServiceImpl implements IScrapService {
@@ -22,7 +22,8 @@ public class ScrapServiceImpl implements IScrapService {
         ScrapeResponse scrapeResponse = getScrapResponse(scrapeRequest);
         ScrapeObject scrapeObject = null;
         if (scrapeResponse.getScrapeResult().equals(ScrapeResult.SUCCESSFUL)) {
-            scrapeObject = XmlParseHelper.parseScrapXml(scrapeResponse.getXmlResponse());
+            GenericXmlParser genericXmlParser = new GenericXmlParser(ScrapeObject.class);
+            scrapeObject = (ScrapeObject) genericXmlParser.parseScrapXml(scrapeResponse.getXmlResponse());
         } else {
             //TODO: Handle parsing of ScrapeError
 //            ScrapeError scrapeError =

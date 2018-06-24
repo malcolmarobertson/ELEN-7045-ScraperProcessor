@@ -1,19 +1,33 @@
 package aps.domain.model.scraperror;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.Objects;
 
+//TODO: Handle date and time portions seperately in the xml string.
+//TODO: Handle xml unmarshalling using generic to re-use the ScrapeObject unmarshalling class.
+@XmlRootElement(name = "scrape-session")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ScrapeError {
-    private ScrapeErrorCode scrapeErrorCode;
-    private String description;
-    private Date timeOccured;
+
+    @XmlElement
+    private String scrapeErrorCode;
+
+    @XmlElement(name = "base-url")
     private String websiteBaseUrl;
 
-    public ScrapeErrorCode getScrapeErrorCode() {
+    private String description;
+    private Date timeOccured;
+
+
+    public String getScrapeErrorCode() {
         return scrapeErrorCode;
     }
 
-    public void setScrapeErrorCode(ScrapeErrorCode scrapeErrorCode) {
+    public void setScrapeErrorCode(String scrapeErrorCode) {
         this.scrapeErrorCode = scrapeErrorCode;
     }
 

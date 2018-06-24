@@ -3,5 +3,5 @@
     <base-url>www.telkom.co.za</base-url>
     <date>10/01/2008</date>
     <time>13:50:00</time>
-    <scrapeErrorCode></scrapeErrorCode>
+    <scrapeErrorCode>INVALID_CREDENTIALS</scrapeErrorCode>
 </scrape-session>

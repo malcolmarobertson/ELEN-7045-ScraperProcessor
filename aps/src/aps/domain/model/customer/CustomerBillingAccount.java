@@ -6,6 +6,7 @@ import java.util.List;
 
 public class CustomerBillingAccount {
     private BillingCompany billingCompany;
+    private AccountStatus accountStatus;
     private List<AccountCredential> accountCredentials;
 
     public BillingCompany getBillingCompany() {
@@ -22,5 +23,13 @@ public class CustomerBillingAccount {
 
     public void setAccountCredentials(List<AccountCredential> accountCredentials) {
         this.accountCredentials = accountCredentials;
+    }
+
+    public AccountStatus getAccountStatus() {
+        return accountStatus;
+    }
+
+    public void setAccountStatus(AccountStatus accountStatus) {
+        this.accountStatus = accountStatus;
     }
 }
