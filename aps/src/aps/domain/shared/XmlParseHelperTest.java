@@ -5,7 +5,7 @@ import org.junit.Before;
 
 import static org.junit.Assert.*;
 
-public class TelkomXmlParseHelperTest {
+public class XmlParseHelperTest {
 
     XmlParseHelper toTest;
     ScrapeObject scrapeObject;
@@ -23,11 +23,11 @@ public class TelkomXmlParseHelperTest {
 
     @org.junit.Test
     public void parseScrapXml() {
-        assertEquals("www.telkom.co.za", toTest.parseScrapXml(getSampleTelkomXmlResponse(), ScrapeObject.class).getBaseUrl());
-        assertEquals("Account no", toTest.parseScrapXml(getSampleTelkomXmlResponse(), ScrapeObject.class).getDataPairs().get(0).getText());
+        assertEquals("www.telkom.co.za", toTest.parseScrapXml(getSampleXmlResponse()).getBaseUrl());
+        assertEquals("Account no", toTest.parseScrapXml(getSampleXmlResponse()).getDataPairs().get(0).getText());
     }
 
-    private String getSampleTelkomXmlResponse() {
+    private String getSampleXmlResponse() {
         return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
                 "<scrape-session>\n" +
                 "    <base-url>www.telkom.co.za</base-url>\n" +

@@ -1,7 +1,11 @@
 package aps.application;
 
+import aps.domain.model.scrape.ScrapeObject;
+import aps.domain.model.statement.Statement;
+
 /**
- * Service for
+ * Strategy to map to the correct statement.
  */
 public interface IStatement {
+    public Statement generateStatement(ScrapeObject scrapeObject);
 }

@@ -1,5 +1,8 @@
 package aps.domain.service;
 
+import aps.domain.shared.ScrapeRequest;
+import aps.domain.shared.ScrapeResponse;
+
 public interface ScrapeService {
-    public String scrape(String url, String userName, String passCode);
+    public ScrapeResponse scrape(ScrapeRequest scrapeRequest);
 }
