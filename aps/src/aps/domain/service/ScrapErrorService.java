@@ -2,7 +2,6 @@ package aps.domain.service;
 
 import aps.application.IScrapErrorService;
 import aps.domain.model.scraperror.ScrapeError;
-import aps.domain.model.scraperror.ScrapeErrorCode;
 import aps.domain.shared.GenericXmlParser;
 
 import static aps.domain.model.scraperror.ScrapeErrorCode.INVALID_CREDENTIALS;

@@ -7,11 +7,8 @@ public class XmlFileReader {
         String xmlString = "";
         try {
             String line;
-
             FileReader fileReader = new FileReader(filePath);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-
             while ((line = bufferedReader.readLine()) != null) {
                 xmlString += line;
             }
