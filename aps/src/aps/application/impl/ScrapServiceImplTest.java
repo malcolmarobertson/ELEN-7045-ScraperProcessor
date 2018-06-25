@@ -52,4 +52,8 @@ public class ScrapServiceImplTest {
         return scrapeRequest;
     }
 
+    @Test
+    public void handleScrapeError() {
+
+    }
 }
