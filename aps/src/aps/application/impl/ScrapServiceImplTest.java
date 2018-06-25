@@ -23,7 +23,7 @@ public class ScrapServiceImplTest {
     @Ignore
     @Test
     public void scrapWebsite() {
-        assertEquals("www.telkom.co.za", toTest.scrapWebsite(buildScrapRequestFailure()));
+        assertEquals("www.telkom.co.za", toTest.scrapWebsite(buildScrapRequestFailure()).getBaseUrl());
         assertEquals("Account no", toTest.getScrapResponse(buildScrapRequestSuccess()));
     }
 

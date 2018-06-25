@@ -3,6 +3,7 @@ package aps.application.util;
 import java.io.*;
 
 public class XmlFileReader {
+
     public static String readFile(String filePath) {
         String xmlString = "";
         try {
