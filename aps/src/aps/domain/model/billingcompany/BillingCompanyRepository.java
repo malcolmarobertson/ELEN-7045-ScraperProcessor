@@ -1,8 +1,11 @@
 package aps.domain.model.billingcompany;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public interface BillingCompanyRepository {
 
-    public BillingCompany findBillingCompanyById(int id);
+    public BillingCompany findBillingCompanyByURL(String baseURL);
 
     public boolean addBillingCompany(BillingCompany BillingCompany);
 

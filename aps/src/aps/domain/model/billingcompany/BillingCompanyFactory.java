@@ -16,12 +16,12 @@ public class BillingCompanyFactory {
     /**
      * Must search database/file for existing billingCompany instances with same url
      */
-    public static boolean billingCompanyURLExist(String companyUrl){
-        return billingCompanyMap.containsKey(companyUrl);
+    public static boolean billingCompanyURLExist(String baseUrl){
+        return billingCompanyMap.containsKey(baseUrl);
     }
 
-    public static BillingCompany getBillingCompany(String companyUrl){
-        return billingCompanyMap.get(companyUrl);
+    public static BillingCompany getBillingCompany(String baseUrl){
+        return billingCompanyMap.get(baseUrl);
     }
 
     private static BillingCompany getBillingCompany(String companyName, String companyUrl, BillingCompanyType billingCompanyType, ScrapeConfiguration scrapeConfiguration, Statement statement){
@@ -39,17 +39,17 @@ public class BillingCompanyFactory {
         return billingCompany;
     }
 
-    public static BillingCompany createBillingCompanyForMunicipality(String companyName, String companyUrl){
-        return getBillingCompany(companyName,companyUrl,BillingCompanyType.MUNICIPALITY,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createMunicipalityStatement());
+    public static BillingCompany createBillingCompanyForMunicipality(String companyName, String baseUrl){
+        return getBillingCompany(companyName,baseUrl,BillingCompanyType.MUNICIPALITY,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createMunicipalityStatement());
     }
 
-    public static BillingCompany createBillingCompanyForCreditCard(String companyName, String companyUrl){
-        return getBillingCompany(companyName,companyUrl,BillingCompanyType.CREDIT_CARD_PROVIDER,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createCredidCardStatement());
+    public static BillingCompany createBillingCompanyForCreditCard(String companyName, String baseUrl){
+        return getBillingCompany(companyName,baseUrl,BillingCompanyType.CREDIT_CARD_PROVIDER,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createCredidCardStatement());
 
     }
 
-    public static BillingCompany createBillingCompanyForTelecommunicationServiceProvider(String companyName, String companyUrl){
-        return getBillingCompany(companyName,companyUrl,BillingCompanyType.TELECOMS,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createTelcommunicationStatemenr());
+    public static BillingCompany createBillingCompanyForTelecommunicationServiceProvider(String companyName, String baseUrl){
+        return getBillingCompany(companyName,baseUrl,BillingCompanyType.TELECOMS,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createTelcommunicationStatemenr());
     }
 
 
