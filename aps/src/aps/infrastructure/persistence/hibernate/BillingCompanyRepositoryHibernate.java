@@ -3,6 +3,8 @@ package aps.infrastructure.persistence.hibernate;
 import aps.domain.model.billingcompany.BillingCompany;
 import aps.domain.model.billingcompany.BillingCompanyRepository;
 
+import java.util.UUID;
+
 /**
  * Hibernate implementation of BillingCompanyRepository.
  */
@@ -10,7 +12,7 @@ public class BillingCompanyRepositoryHibernate extends HibernateRepository imple
 
 
     @Override
-    public BillingCompany findBillingCompanyById(int id) {
+    public BillingCompany findBillingCompanyByURL(String baseURL) {
         return null;
     }
 

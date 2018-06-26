@@ -59,4 +59,15 @@ public class BillingCompany {
     public void setStatement(Statement statement) {
         this.statement = statement;
     }
+
+//    @Override
+//    public boolean equals(Object object){
+//        if(! (object instanceof BillingCompany)){
+//            return false;
+//        }
+//        BillingCompany billingCompany = (BillingCompany) object;
+//        return this.id.equals(billingCompany.getId());
+//    }
+
+
 }
