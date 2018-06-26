@@ -5,9 +5,18 @@ import aps.domain.model.billingcompany.BillingCompany;
 import java.util.List;
 
 public class CustomerBillingAccount {
+    private String accountNumber;
     private BillingCompany billingCompany;
-    private AccountStatus accountStatus;
+    private String accountStatus;
     private List<AccountCredential> accountCredentials;
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
 
     public BillingCompany getBillingCompany() {
         return billingCompany;
@@ -25,11 +34,11 @@ public class CustomerBillingAccount {
         this.accountCredentials = accountCredentials;
     }
 
-    public AccountStatus getAccountStatus() {
+    public String getAccountStatus() {
         return accountStatus;
     }
 
-    public void setAccountStatus(AccountStatus accountStatus) {
+    public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
     }
 }

@@ -8,16 +8,17 @@ import java.io.Serializable;
  */
 public class ScrapeRequest implements Serializable {
 
-    private String websiteUrl;
+    private String baseUrl;
     private String userIdentification;
     private String passCode;
+    private String accountNumber;
 
-    public String getWebsiteUrl() {
-        return websiteUrl;
+    public String getBaseUrl() {
+        return baseUrl;
     }
 
-    public void setWebsiteUrl(String websiteUrl) {
-        this.websiteUrl = websiteUrl;
+    public void setBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
     }
 
     public String getUserIdentification() {
@@ -34,5 +35,13 @@ public class ScrapeRequest implements Serializable {
 
     public void setPassCode(String passCode) {
         this.passCode = passCode;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }

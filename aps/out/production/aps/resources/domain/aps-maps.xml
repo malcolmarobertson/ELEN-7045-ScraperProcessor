@@ -6,5 +6,10 @@
         <type>String</type>
         <internalLabel>accountNumber</internalLabel>
     </standard-map>
+    <standard-map>
+        <label>Statement number</label>
+        <type>String</type>
+        <internalLabel>statementNumber</internalLabel>
+    </standard-map>
 </standard-maps>
 </aps-maps>

@@ -1,17 +1,38 @@
 package aps.domain.model.customer;
 
+import javax.xml.bind.annotation.*;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
+@XmlRootElement(name = "customer")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Customer {
+
+    @XmlElement(name = "base-url")
     private int id;
+
+    @XmlElement
     private String apsUserName;
+
+    @XmlElement
     private String apsPassword;
+
+    @XmlElement
     private String firstName;
+
+    @XmlElement
     private String surname;
+
+    @XmlElement
     private String email;
+
+    @XmlElement
     private String phoneNumber;
-    private Collection<CustomerBillingAccount> customerBillingAccounts;
+
+    @XmlElementWrapper(name = "customerBillingAccounts")
+    @XmlElement(name = "customerBillingAccount")
+    private List<CustomerBillingAccount> customerBillingAccounts;
 
     public int getId() {
         return id;
@@ -69,11 +90,11 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public Collection<CustomerBillingAccount> getCustomerBillingAccounts() {
+    public List<CustomerBillingAccount> getCustomerBillingAccounts() {
         return customerBillingAccounts;
     }
 
-    public void setCustomerBillingAccounts(Collection<CustomerBillingAccount> customerBillingAccounts) {
+    public void setCustomerBillingAccounts(List<CustomerBillingAccount> customerBillingAccounts) {
         this.customerBillingAccounts = customerBillingAccounts;
     }
 

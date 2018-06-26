@@ -2,12 +2,12 @@ package aps.domain.model.scraperror;
 
 public interface ScrapErrorRepository {
     
-    public ScrapeError findScrapErrorById(int id);
+    public ScrapeError findByBaseUrl(String baseUrl);
 
-    public boolean addScrapError(ScrapeError ScrapeError);
+    public void save(ScrapeError ScrapeError);
 
-    public boolean removeScrapError(ScrapeError ScrapeError);
+    public void delete(ScrapeError ScrapeError);
 
-    public void updateScrapError(ScrapeError ScrapeError);
+    public void update(ScrapeError ScrapeError);
 
 }

@@ -14,8 +14,4 @@
         <billingCompany></billingCompany>
         <billingCompanyId></billingCompanyId>
     </customerBillingAccount>
-    <customerBillingAccount>
-        <billingCompany></billingCompany>
-        <billingCompanyId></billingCompanyId>
-    </customerBillingAccount>
 </customer>

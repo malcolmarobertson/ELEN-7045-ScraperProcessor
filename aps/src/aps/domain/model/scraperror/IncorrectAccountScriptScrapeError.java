@@ -1,13 +1,13 @@
 package aps.domain.model.scraperror;
 
 import static aps.domain.shared.ApplicationConstants.BROKEN_SCRIPT;
+import static aps.domain.shared.ApplicationConstants.INCORRECT_ACCOUNT;
 
-public class BrokenScriptScrapeError implements ScrapeErrorStrategy {
+public class IncorrectAccountScriptScrapeError implements ScrapeErrorStrategy {
 
     @Override
     public String handleScrapeError() {
-        //TODO: Handle Site Changed and Encountered Unhandled Data Condition Errors differently.
-        return BROKEN_SCRIPT;
+        return INCORRECT_ACCOUNT;
     }
 
     @Override

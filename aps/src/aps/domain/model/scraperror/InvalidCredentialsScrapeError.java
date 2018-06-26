@@ -1,10 +1,12 @@
 package aps.domain.model.scraperror;
 
+import static aps.domain.shared.ApplicationConstants.INVALID_CREDENTIALS;
+
 public class InvalidCredentialsScrapeError implements ScrapeErrorStrategy {
 
     @Override
     public String handleScrapeError() {
-        return null;
+        return INVALID_CREDENTIALS;
     }
 
     @Override

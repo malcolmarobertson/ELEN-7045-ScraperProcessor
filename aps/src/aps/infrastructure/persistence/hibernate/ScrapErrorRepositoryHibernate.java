@@ -1,30 +1,40 @@
 package aps.infrastructure.persistence.hibernate;
 
+import aps.application.util.XmlFileWriter;
 import aps.domain.model.scraperror.ScrapeError;
 import aps.domain.model.scraperror.ScrapErrorRepository;
+import aps.domain.shared.GenericXmlParser;
+
+import static aps.domain.shared.ApplicationConstants.SCRAPE_ERROR_FILE_BASE_PATH;
+import static aps.domain.shared.ApplicationConstants.XML_EXTENSION;
 
 /**
- * Hibernate implementation of ScrapErrorRepository.
+ * Mock Hibernate implementation of ScrapErrorRepository.
+ * The actual data is stored in xml files in the resources folder in the project file path.
  */
-public class ScrapErrorRepositoryHibernate extends HibernateRepository implements ScrapErrorRepository {
+public class ScrapErrorRepositoryHibernate implements ScrapErrorRepository {
+
+    GenericXmlParser genericXmlParser;
 
     @Override
-    public ScrapeError findScrapErrorById(int id) {
+    public ScrapeError findByBaseUrl(String baseUrl) {
         return null;
     }
 
     @Override
-    public boolean addScrapError(ScrapeError ScrapeError) {
-        return false;
+    public void save(ScrapeError scrapeError) {
+        genericXmlParser = new GenericXmlParser(ScrapeError.class);
+        String xmlScrapeErrorEntry = genericXmlParser.marshallScrapXml(scrapeError);
+        String filePath = SCRAPE_ERROR_FILE_BASE_PATH + scrapeError.getBillingCompanyName() + "scrape-error-entry"
+                + scrapeError.getDate() + scrapeError.getTime() + XML_EXTENSION;
+        XmlFileWriter.writeFile(filePath, xmlScrapeErrorEntry);
     }
 
     @Override
-    public boolean removeScrapError(ScrapeError ScrapeError) {
-        return false;
+    public void delete(ScrapeError scrapeError) {
     }
 
     @Override
-    public void updateScrapError(ScrapeError ScrapeError) {
-
+    public void update(ScrapeError scrapeError) {
     }
 }

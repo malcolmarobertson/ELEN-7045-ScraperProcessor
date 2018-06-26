@@ -1,7 +1,6 @@
 package aps.domain.model.scrape;
 
 import javax.xml.bind.annotation.*;
-import java.util.Date;
 import java.util.List;
 
 @XmlRootElement(name = "scrape-session")
@@ -11,9 +10,13 @@ public class ScrapeObject {
     private String baseUrl;
     private String customerName;
     private String customerSurname;
+    private String billingCompanyName;
 
     @XmlElement
-    private Date date;
+    private String date;
+
+    @XmlElement
+    private String time;
 
     @XmlElementWrapper(name = "datapairs")
     @XmlElement(name = "datapair")
@@ -43,12 +46,28 @@ public class ScrapeObject {
         this.customerSurname = customerSurname;
     }
 
-    public Date getDate() {
+    public String getBillingCompanyName() {
+        return billingCompanyName;
+    }
+
+    public void setBillingCompanyName(String billingCompanyName) {
+        this.billingCompanyName = billingCompanyName;
+    }
+
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public List<DataPair> getDataPairs() {

@@ -2,12 +2,12 @@ package aps.domain.model.statement;
 
 public interface StatementRepository {
 
-    public Statement findStatementById(int id);
+    public Statement findById(int id);
 
-    public boolean addStatement(Statement customer);
+    public void save(Statement customer);
 
-    public boolean removeStatement(Statement customer);
+    public void delete(Statement customer);
 
-    public void updateStatement(Statement customer);
+    public void update(Statement customer);
 
 }

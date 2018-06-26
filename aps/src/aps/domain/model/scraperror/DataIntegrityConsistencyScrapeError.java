@@ -1,13 +1,13 @@
 package aps.domain.model.scraperror;
 
 import static aps.domain.shared.ApplicationConstants.BROKEN_SCRIPT;
+import static aps.domain.shared.ApplicationConstants.DATA_INTEGRITY_CONSISTENCY;
 
-public class BrokenScriptScrapeError implements ScrapeErrorStrategy {
+public class DataIntegrityConsistencyScrapeError implements ScrapeErrorStrategy {
 
     @Override
     public String handleScrapeError() {
-        //TODO: Handle Site Changed and Encountered Unhandled Data Condition Errors differently.
-        return BROKEN_SCRIPT;
+        return DATA_INTEGRITY_CONSISTENCY;
     }
 
     @Override

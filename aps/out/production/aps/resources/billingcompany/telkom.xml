@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<billingCompany>
+    <billingCompanyId>1</billingCompanyId>
+    <billingCompanyName>Telkom</billingCompanyName>
+    <url>http://www.telkom.co.za</url>
+    <billingCompanyType>TELECOMS</billingCompanyType>
+    <billingCompanyMap>
+        <billingCompanyLabel>abc</billingCompanyLabel>
+        <billingCompanyLabel>abc</billingCompanyLabel>
+    </billingCompanyMap>
+
+    <scrapeDate>
+        <scrapeDate>mj@test.com</scrapeDate>
+        <scrapeDate>mj@test.com</scrapeDate>
+        <scrapeDate>mj@test.com</scrapeDate>
+        <scrapeDate>mj@test.com</scrapeDate>
+        <scrapeDate>mj@test.com</scrapeDate>
+    </scrapeDate>
+
+    <nonScrapeDate>
+        <nonScrapeDate>mj@test.com</nonScrapeDate>
+        <nonScrapeDate>mj@test.com</nonScrapeDate>
+        <nonScrapeDate>mj@test.com</nonScrapeDate>
+        <nonScrapeDate>mj@test.com</nonScrapeDate>
+        <nonScrapeDate>mj@test.com</nonScrapeDate>
+    </nonScrapeDate>
+</billingCompany>

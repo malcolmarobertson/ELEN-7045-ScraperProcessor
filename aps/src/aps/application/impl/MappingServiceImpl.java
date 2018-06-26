@@ -5,7 +5,6 @@ import aps.application.util.XmlFileReader;
 import aps.domain.model.scrape.DataPair;
 import aps.domain.model.scrape.ScrapeObject;
 import aps.domain.model.statement.MunicipalityStatement;
-import aps.domain.model.statement.Statement;
 import aps.domain.shared.ApsMaps;
 import aps.domain.shared.GenericXmlParser;
 

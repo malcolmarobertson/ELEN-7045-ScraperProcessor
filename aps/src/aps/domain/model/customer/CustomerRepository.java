@@ -1,12 +1,16 @@
 package aps.domain.model.customer;
 
+import aps.domain.exception.ApsException;
+
 public interface CustomerRepository {
 
-    public Customer findCustomerById(int id);
+    public Customer findById(int id);
 
-    public boolean addCustomer(Customer customer);
+    public Customer findByUserName(String username) throws ApsException;
 
-    public boolean removeCustomer(Customer customer);
+    public void save(Customer customer);
 
-    public void updateCustomer(Customer customer);
+    public void delete(Customer customer);
+
+    public void update(Customer customer);
 }

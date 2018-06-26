@@ -1,30 +1,60 @@
 package aps.infrastructure.persistence.hibernate;
 
+import aps.application.util.XmlFileReader;
+import aps.application.util.XmlFileWriter;
+import aps.domain.exception.ApsException;
 import aps.domain.model.customer.Customer;
 import aps.domain.model.customer.CustomerRepository;
+import aps.domain.shared.GenericXmlParser;
+
+import java.io.File;
+
+import static aps.domain.shared.ApplicationConstants.CUSTOMER_FILE_BASE_PATH;
+import static aps.domain.shared.ApplicationConstants.SCRAPE_ERROR_FILE_BASE_PATH;
+import static aps.domain.shared.ApplicationConstants.XML_EXTENSION;
 
 /**
- * Hibernate implementation of CustomerRepository.
+ * Mock Hibernate implementation of CustomerRepository.
+ * The actual data is stored in xml files in the resources folder in the project file path.
  */
-public class CustomerRepositoryHibernate extends HibernateRepository implements CustomerRepository {
+public class CustomerRepositoryHibernate implements CustomerRepository {
+
+    GenericXmlParser genericXmlParser;
 
     @Override
-    public Customer findCustomerById(int id) {
+    public Customer findById(int id) {
         return null;
     }
 
     @Override
-    public boolean addCustomer(Customer customer) {
-        return false;
+    public Customer findByUserName(String username) throws ApsException {
+        String filePath = CUSTOMER_FILE_BASE_PATH + username.toLowerCase() + XML_EXTENSION;
+        genericXmlParser = new GenericXmlParser(Customer.class);
+        File userFile = new File(filePath);
+
+        if (!userFile.exists()) {
+            throw new ApsException("User " + username + " does not exist!");
+        } else {
+            String xmlFile = XmlFileReader.readFile(filePath);
+            Customer customer = (Customer) genericXmlParser.parseScrapXml(xmlFile);
+            return customer;
+        }
     }
 
     @Override
-    public boolean removeCustomer(Customer customer) {
-        return false;
+    public void save(Customer customer) {
+        genericXmlParser = new GenericXmlParser(Customer.class);
+        String xmlScrapeErrorEntry = genericXmlParser.marshallScrapXml(customer);
+        String filePath = CUSTOMER_FILE_BASE_PATH + customer.getApsUserName() + XML_EXTENSION;
+        XmlFileWriter.writeFile(filePath, xmlScrapeErrorEntry);
     }
 
     @Override
-    public void updateCustomer(Customer customer) {
+    public void delete(Customer customer) {
+    }
+
+    @Override
+    public void update(Customer customer) {
 
     }
 }
