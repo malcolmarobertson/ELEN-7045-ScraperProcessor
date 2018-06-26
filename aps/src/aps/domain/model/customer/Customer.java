@@ -1,6 +1,7 @@
 package aps.domain.model.customer;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 public class Customer {
@@ -11,7 +12,7 @@ public class Customer {
     private String surname;
     private String email;
     private String phoneNumber;
-    private Collection<CustomerBillingAccount> customerBillingAccounts;
+    private List<CustomerBillingAccount> customerBillingAccounts;
 
     public int getId() {
         return id;
@@ -73,7 +74,7 @@ public class Customer {
         return customerBillingAccounts;
     }
 
-    public void setCustomerBillingAccounts(Collection<CustomerBillingAccount> customerBillingAccounts) {
+    public void setCustomerBillingAccounts(List<CustomerBillingAccount> customerBillingAccounts) {
         this.customerBillingAccounts = customerBillingAccounts;
     }
 
