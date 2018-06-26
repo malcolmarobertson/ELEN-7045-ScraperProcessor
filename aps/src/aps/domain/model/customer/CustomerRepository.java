@@ -1,8 +1,10 @@
 package aps.domain.model.customer;
 
+import java.util.UUID;
+
 public interface CustomerRepository {
 
-    public Customer findCustomerById(int id);
+    public Customer findCustomerById(UUID id);
 
     public boolean addCustomer(Customer customer);
 

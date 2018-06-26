@@ -2,13 +2,19 @@ package aps.domain.model.billingcompany;
 
 import aps.domain.model.statement.Statement;
 
+import java.util.UUID;
+
 public class BillingCompany {
     private String name;
     private String baseUrl;
-    private String id;
+    private UUID id;
     private BillingCompanyType billingCompanyType;
     private ScrapeConfiguration scrapeConfiguration;
     private Statement statement;
+
+    public BillingCompany(UUID id){
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -26,12 +32,8 @@ public class BillingCompany {
         this.baseUrl = baseUrl;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public BillingCompanyType getBillingCompanyType() {

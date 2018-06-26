@@ -3,9 +3,10 @@ package aps.domain.model.customer;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Customer {
-    private int id;
+    private UUID id;
     private String apsUserName;
     private String apsPassword;
     private String firstName;
@@ -14,13 +15,14 @@ public class Customer {
     private String phoneNumber;
     private List<CustomerBillingAccount> customerBillingAccounts;
 
-    public int getId() {
+    public Customer(UUID id){
+        this.id = id;
+    }
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getApsPassword() {
         return apsPassword;

@@ -5,12 +5,15 @@ import aps.domain.model.statement.StatementFactory;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class BillingCompanyFactory {
 
 
     //Backed up on a permanent storage under customer credentials
-    private static int ID = 0;
+    private static UUID generateID(){
+        return UUID.randomUUID();
+    }
     private static Map<String, BillingCompany> billingCompanyMap = new HashMap<String, BillingCompany>();
 
     /**
@@ -28,8 +31,7 @@ public class BillingCompanyFactory {
         if (billingCompanyURLExist(companyUrl)){
             return getBillingCompany(companyUrl);
         }
-        BillingCompany billingCompany = new BillingCompany();
-        billingCompany.setId(++ID+"");
+        BillingCompany billingCompany = new BillingCompany(generateID());
         billingCompany.setName(companyName);
         billingCompany.setBaseUrl(companyUrl);
         billingCompany.setBillingCompanyType(billingCompanyType);
