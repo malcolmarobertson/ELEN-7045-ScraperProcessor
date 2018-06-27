@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<customer>
+    <apsUserName>tk</apsUserName>
+    <apsPassword>tkrocks01</apsPassword>
+    <firstName>Tim</firstName>
+    <surname>Knight</surname>
+    <email>tk@test.com</email>
+
+    <customerBillingAccounts>
+        <customerBillingAccount>
+            <accountStatus>ACTIVE</accountStatus>
+            <billingCompany>
+                <name>City Of Joburg</name>
+                <baseUrl>www.joburg.org.za</baseUrl>
+            </billingCompany>
+            <accountCredentials>
+                <userName>tim</userName>
+                <password>tim01</password>
+            </accountCredentials>
+        </customerBillingAccount>
+    </customerBillingAccounts>
+</customer>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<customer>
+    <apsUserName>mj</apsUserName>
+    <apsPassword>mjrocks01</apsPassword>
+    <firstName>Michael</firstName>
+    <surname>Jordan</surname>
+    <email>mj@test.com</email>
+
+    <customerBillingAccounts>
+        <customerBillingAccount>
+            <accountStatus>ACTIVE</accountStatus>
+            <billingCompany>
+                <name>Telkom</name>
+                <baseUrl>www.telkom.co.za</baseUrl>
+            </billingCompany>
+            <accountCredentials>
+                <userName>mike</userName>
+                <password>mike01</password>
+            </accountCredentials>
+        </customerBillingAccount>
+        <customerBillingAccount>
+            <accountStatus>ACTIVE</accountStatus>
+            <billingCompany>
+                <name>Edgars</name>
+                <baseUrl>www.edgars.co.za</baseUrl>
+            </billingCompany>
+            <accountCredentials>
+                <userName>mike</userName>
+                <password>mike01</password>
+            </accountCredentials>
+        </customerBillingAccount>
+    </customerBillingAccounts>
+</customer>

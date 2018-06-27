@@ -14,20 +14,20 @@ import java.util.Objects;
 public abstract class Statement {
 
     private int id;
-    private String accountNumber;
-    private String accountHolderName;
-    private Date statementDate;
-    private String statementNumber;
-    private Month month;
-    private BigDecimal totalDue;
-    private Date dueDate;
-    private BigDecimal openingBalance;
-    private BigDecimal closingBalance;
-    private boolean paymentReceived;
-    private BigDecimal newCharges;
-    private BigDecimal deductions;
-    private BigDecimal discount;
-    private BigDecimal vatAmount;
+    public String accountNumber;
+    public String accountHolderName;
+    public Date statementDate;
+    public String statementNumber;
+    public Month month;
+    public BigDecimal totalDue;
+    public Date dueDate;
+    public BigDecimal openingBalance;
+    public BigDecimal closingBalance;
+    public boolean paymentReceived;
+    public BigDecimal newCharges;
+    public BigDecimal deductions;
+    public BigDecimal discount;
+    public BigDecimal vatAmount;
 
     public String getAccountNumber() {
         return accountNumber;

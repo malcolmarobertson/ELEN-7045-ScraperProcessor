@@ -20,4 +20,19 @@ public class ApsMaps  {
     public void setStandardMaps(List<StandardMap> standardMaps) {
         this.standardMaps = standardMaps;
     }
+
+    @XmlElementWrapper(name = "municip-maps")
+    @XmlElement(name = "municip-map")
+    private List<StandardMap> municipMaps;
+
+    public List<StandardMap> getMunicipMaps() {
+        return municipMaps;
+    }
+
+    public void setMunicipMaps(List<StandardMap> municipMaps) {
+        this.municipMaps = municipMaps;
+    }
+
+
+
 }
