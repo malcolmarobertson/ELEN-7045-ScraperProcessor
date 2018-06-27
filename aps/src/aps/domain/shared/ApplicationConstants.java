@@ -40,4 +40,10 @@ public class ApplicationConstants {
      */
     public static final String SCRAP_SUCCESSFUL = "Scraping completed successfully for url: ";
 
+    /**
+     * Password Encryption Salt and Key
+     */
+    public static final String SALT = "5b3241141d41bf84e7ed3e14";
+    public static final String KEY = "5b3241141d41bf84e7ed3e14";
+
 }

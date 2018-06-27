@@ -2,14 +2,19 @@ package aps.domain.model.billingcompany;
 
 import java.util.Date;
 
+/**
+ * Class represents all the settings pertaining to Scraper Scheduling that can be configured per BillingCompany.
+ */
 public class ScrapeConfiguration {
     private Date dateFrom;
     private Date dateTo;
     private int statementDayOfMonth;
     private int cycleDays;
     private int leadTimeInDays;
-    private int retryIntervals;
+    private int scraperRetryIntervals;
+    private int apsRetryIntervals;
     private int concurrentSessions;
+    private int nextScrapeTimestamp;
 
     public Date getDateFrom() {
         return dateFrom;
@@ -51,12 +56,20 @@ public class ScrapeConfiguration {
         this.leadTimeInDays = leadTimeInDays;
     }
 
-    public int getRetryIntervals() {
-        return retryIntervals;
+    public int getScraperRetryIntervals() {
+        return scraperRetryIntervals;
     }
 
-    public void setRetryIntervals(int retryIntervals) {
-        this.retryIntervals = retryIntervals;
+    public void setScraperRetryIntervals(int scraperRetryIntervals) {
+        this.scraperRetryIntervals = scraperRetryIntervals;
+    }
+
+    public int getApsRetryIntervals() {
+        return apsRetryIntervals;
+    }
+
+    public void setApsRetryIntervals(int apsRetryIntervals) {
+        this.apsRetryIntervals = apsRetryIntervals;
     }
 
     public int getConcurrentSessions() {
@@ -65,5 +78,13 @@ public class ScrapeConfiguration {
 
     public void setConcurrentSessions(int concurrentSessions) {
         this.concurrentSessions = concurrentSessions;
+    }
+
+    public int getNextScrapeTimestamp() {
+        return nextScrapeTimestamp;
+    }
+
+    public void setNextScrapeTimestamp(int nextScrapeTimestamp) {
+        this.nextScrapeTimestamp = nextScrapeTimestamp;
     }
 }

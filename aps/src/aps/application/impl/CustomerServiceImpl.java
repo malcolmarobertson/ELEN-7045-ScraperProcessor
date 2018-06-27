@@ -50,6 +50,12 @@ public class CustomerServiceImpl implements ICustomerService {
         return scrapeResult;
     }
 
+    public boolean customerExceededMaxAllowedCredentialsForAccount(CustomerBillingAccount customerBillingAccount) {
+        boolean exceededMaxAllowedCredentials = Boolean.FALSE;
+        //TODO: Add logic to determine this here.
+        return exceededMaxAllowedCredentials;
+    }
+
     private String scrapeWebsite(CustomerBillingAccount customerBillingAccount) {
         ScrapeRequest scrapeRequest = new ScrapeRequest();
         //Scraping for the first credential details.

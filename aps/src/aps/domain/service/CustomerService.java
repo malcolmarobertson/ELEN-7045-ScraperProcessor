@@ -17,12 +17,6 @@ public class CustomerService {
         customerRepository.save(customer);
     }
 
-    public boolean customerExceededMaxAllowedCredentialsForAccount(Customer customer, CustomerBillingAccount customerBillingAccount) {
-        boolean exceededMaxAllowedCredentials = Boolean.FALSE;
-        //TODO: Add logic to determine this here.
-        return exceededMaxAllowedCredentials;
-    }
-
     public Customer getCustomer(String username) throws ApsException {
         CustomerRepository customerRepository = new CustomerRepositoryHibernate();
         Customer customer = null;
