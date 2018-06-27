@@ -4,13 +4,13 @@ import javax.xml.bind.annotation.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @XmlRootElement(name = "customer")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Customer {
 
-    @XmlElement(name = "base-url")
-    private int id;
+    private UUID id;
 
     @XmlElement
     private String apsUserName;
@@ -34,13 +34,17 @@ public class Customer {
     @XmlElement(name = "customerBillingAccount")
     private List<CustomerBillingAccount> customerBillingAccounts;
 
-    public int getId() {
+    public Customer(UUID id) {
+        this.id = id;
+    }
+
+    public Customer() {
+    }
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getApsPassword() {
         return apsPassword;

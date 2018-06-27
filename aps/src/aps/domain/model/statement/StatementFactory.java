@@ -11,7 +11,7 @@ public class StatementFactory{
     }
 
     public static Statement createTelcommunicationStatemenr(){
-        return new TelecommunicationServiceStatement();
+        return new TelecommunicationServiceProviderStatement();
     }
 
 }

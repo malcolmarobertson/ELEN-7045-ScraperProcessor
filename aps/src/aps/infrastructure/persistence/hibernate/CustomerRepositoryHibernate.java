@@ -13,6 +13,8 @@ import static aps.domain.shared.ApplicationConstants.CUSTOMER_FILE_BASE_PATH;
 import static aps.domain.shared.ApplicationConstants.SCRAPE_ERROR_FILE_BASE_PATH;
 import static aps.domain.shared.ApplicationConstants.XML_EXTENSION;
 
+import java.util.UUID;
+
 /**
  * Mock Hibernate implementation of CustomerRepository.
  * The actual data is stored in xml files in the resources folder in the project file path.
@@ -22,7 +24,7 @@ public class CustomerRepositoryHibernate implements CustomerRepository {
     GenericXmlParser genericXmlParser;
 
     @Override
-    public Customer findById(int id) {
+    public Customer findCustomerById(UUID id) {
         return null;
     }
 

@@ -5,37 +5,46 @@ import aps.domain.model.billingcompany.BillingCompany;
 import aps.domain.model.billingcompany.BillingCompanyRepository;
 import aps.domain.shared.GenericXmlParser;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static aps.domain.shared.ApplicationConstants.BILLING_COMPANY_FILE_BASE_PATH;
 import static aps.domain.shared.ApplicationConstants.XML_EXTENSION;
 
 /**
  * Mock Hibernate implementation of BillingCompanyRepository.
- * The actual data is stored in xml files in the resources folder in the project file path.
+ * The actual data is stored in a map.
  */
 public class BillingCompanyRepositoryHibernate implements BillingCompanyRepository {
 
-    GenericXmlParser genericXmlParser;
+    //Backed up on a database/file
+    private Map<String, BillingCompany> billingCompanyRepo = new HashMap<>();
 
     @Override
-    public BillingCompany findById(int id) {
-        return null;
+    public BillingCompany findByURL(String baseURL) {
+        return billingCompanyRepo.get(baseURL);
     }
 
     @Override
-    public void save(BillingCompany billingCompany) {
-        genericXmlParser = new GenericXmlParser(BillingCompany.class);
-        String xmlScrapeErrorEntry = genericXmlParser.marshallScrapXml(billingCompany);
-        String filePath = BILLING_COMPANY_FILE_BASE_PATH + billingCompany.getName() + XML_EXTENSION;
-        XmlFileWriter.writeFile(filePath, xmlScrapeErrorEntry);
+    public boolean save(BillingCompany billingCompany) {
+        if (billingCompanyRepo.containsKey(billingCompany.getBaseUrl())) {
+            return false;
+        }
+        billingCompanyRepo.put(billingCompany.getBaseUrl(), billingCompany);
+        return true;
     }
 
     @Override
-    public void delete(BillingCompany billingCompany) {
-
+    public boolean delete(BillingCompany billingCompany) {
+        if (billingCompanyRepo.containsKey(billingCompany.getBaseUrl())) {
+            billingCompanyRepo.remove(billingCompany.getBaseUrl());
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void update(BillingCompany billingCompany) {
-
+        billingCompanyRepo.replace(billingCompany.getBaseUrl(), billingCompany);
     }
 }

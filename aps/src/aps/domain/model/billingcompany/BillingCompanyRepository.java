@@ -2,11 +2,11 @@ package aps.domain.model.billingcompany;
 
 public interface BillingCompanyRepository {
 
-    public BillingCompany findById(int id);
+    public BillingCompany findByURL(String baseURL);
 
-    public void save(BillingCompany BillingCompany);
+    public boolean save(BillingCompany BillingCompany);
 
-    public void delete(BillingCompany BillingCompany);
+    public boolean delete(BillingCompany BillingCompany);
 
     public void update(BillingCompany BillingCompany);
 
