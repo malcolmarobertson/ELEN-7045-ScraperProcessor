@@ -2,6 +2,7 @@ package aps.domain.model.billingcompany;
 
 import aps.domain.model.statement.Statement;
 import aps.domain.model.statement.StatementFactory;
+import aps.domain.model.statement.StatementType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,11 +45,11 @@ public class BillingCompanyFactory {
     public static BillingCompany createBillingCompany(String companyName, String baseURL, BillingCompanyType billingCompanyType){
         switch (billingCompanyType){
             case TELECOMS:
-                return getBillingCompany(companyName,baseURL,BillingCompanyType.TELECOMS,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createTelcommunicationStatemenr());
+                return getBillingCompany(companyName,baseURL,BillingCompanyType.TELECOMS,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createStatement(StatementType.TELECOMS));
             case MUNICIPALITY:
-                return getBillingCompany(companyName,baseURL,BillingCompanyType.MUNICIPALITY,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createMunicipalityStatement());
+                return getBillingCompany(companyName,baseURL,BillingCompanyType.MUNICIPALITY,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createStatement(StatementType.MUNICIPALITY));
             case CREDIT_CARD_PROVIDER:
-                return getBillingCompany(companyName,baseURL,BillingCompanyType.CREDIT_CARD_PROVIDER,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createCredidCardStatement());
+                return getBillingCompany(companyName,baseURL,BillingCompanyType.CREDIT_CARD_PROVIDER,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createStatement(StatementType.CREDIT_CARD_PROVIDER));
             default:
                 return null;
         }
