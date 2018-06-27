@@ -8,8 +8,6 @@ import aps.domain.shared.GenericXmlParser;
 import aps.domain.shared.ScrapeResponse;
 
 import static aps.domain.model.scraperror.ScrapeErrorCode.*;
-import static aps.domain.model.scraperror.ScrapeErrorCode.BROKEN_SCRIPT;
-import static aps.domain.model.scraperror.ScrapeErrorCode.ERROR_PAGE;
 
 public class ScrapErrorServiceImpl implements IScrapErrorService {
 

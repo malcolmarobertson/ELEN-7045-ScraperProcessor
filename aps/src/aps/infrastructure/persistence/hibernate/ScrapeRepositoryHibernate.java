@@ -6,7 +6,6 @@ import aps.domain.model.scrape.ScrapeRepository;
 import aps.domain.model.scraperror.ScrapeError;
 import aps.domain.shared.GenericXmlParser;
 
-import static aps.domain.shared.ApplicationConstants.SCRAPE_ERROR_FILE_BASE_PATH;
 import static aps.domain.shared.ApplicationConstants.SCRAPE_FILE_BASE_PATH;
 import static aps.domain.shared.ApplicationConstants.XML_EXTENSION;
 

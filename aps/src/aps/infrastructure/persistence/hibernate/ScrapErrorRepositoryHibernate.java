@@ -1,8 +1,8 @@
 package aps.infrastructure.persistence.hibernate;
 
 import aps.application.util.XmlFileWriter;
-import aps.domain.model.scraperror.ScrapeError;
 import aps.domain.model.scraperror.ScrapErrorRepository;
+import aps.domain.model.scraperror.ScrapeError;
 import aps.domain.shared.GenericXmlParser;
 
 import static aps.domain.shared.ApplicationConstants.SCRAPE_ERROR_FILE_BASE_PATH;

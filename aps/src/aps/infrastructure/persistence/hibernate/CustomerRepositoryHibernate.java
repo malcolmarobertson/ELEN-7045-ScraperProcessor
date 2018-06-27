@@ -8,12 +8,10 @@ import aps.domain.model.customer.CustomerRepository;
 import aps.domain.shared.GenericXmlParser;
 
 import java.io.File;
+import java.util.UUID;
 
 import static aps.domain.shared.ApplicationConstants.CUSTOMER_FILE_BASE_PATH;
-import static aps.domain.shared.ApplicationConstants.SCRAPE_ERROR_FILE_BASE_PATH;
 import static aps.domain.shared.ApplicationConstants.XML_EXTENSION;
-
-import java.util.UUID;
 
 /**
  * Mock Hibernate implementation of CustomerRepository.

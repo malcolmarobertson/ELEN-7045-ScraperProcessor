@@ -1,6 +1,7 @@
 package aps.domain.model.billingcompany;
 
 import aps.domain.model.statement.Statement;
+import aps.domain.model.statement.StatementType;
 
 import java.util.UUID;
 
@@ -8,7 +9,7 @@ public class BillingCompany {
     private String name;
     private String baseUrl;
     private UUID id;
-    private BillingCompanyType billingCompanyType;
+    private StatementType statementType;
     private ScrapeConfiguration scrapeConfiguration;
     private Statement statement;
 
@@ -38,12 +39,12 @@ public class BillingCompany {
         return id;
     }
 
-    public BillingCompanyType getBillingCompanyType() {
-        return billingCompanyType;
+    public StatementType getBillingCompanyType() {
+        return statementType;
     }
 
-    public void setBillingCompanyType(BillingCompanyType billingCompanyType) {
-        this.billingCompanyType = billingCompanyType;
+    public void setBillingCompanyType(StatementType statementType) {
+        this.statementType = statementType;
     }
 
     public ScrapeConfiguration getScrapeConfiguration() {
@@ -61,15 +62,5 @@ public class BillingCompany {
     public void setStatement(Statement statement) {
         this.statement = statement;
     }
-
-//    @Override
-//    public boolean equals(Object object){
-//        if(! (object instanceof BillingCompany)){
-//            return false;
-//        }
-//        BillingCompany billingCompany = (BillingCompany) object;
-//        return this.id.equals(billingCompany.getId());
-//    }
-
 
 }

@@ -1,11 +1,8 @@
 package aps.application.impl;
 
-import aps.application.util.XmlFileReader;
 import aps.domain.model.scrape.DataPair;
-import aps.domain.model.scrape.DataPairs;
 import aps.domain.model.scrape.ScrapeObject;
 import aps.domain.shared.ApsMaps;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
