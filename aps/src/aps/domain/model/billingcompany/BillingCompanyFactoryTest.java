@@ -13,9 +13,9 @@ public class BillingCompanyFactoryTest {
     }
 
     public static void main(String... args){
-        print(BillingCompanyFactory.createBillingCompanyForMunicipality("Metshimaholo Municipality","www.metsimaholo.gov.za"));
-        print(BillingCompanyFactory.createBillingCompanyForCreditCard("FNB","www.fnb.co.za"));
-        print(BillingCompanyFactory.createBillingCompanyForTelecommunicationServiceProvider("Telkom","www.telkom.co.za"));
+        print(BillingCompanyFactory.createBillingCompany("Metshimaholo Municipality","www.metsimaholo.gov.za",BillingCompanyType.MUNICIPALITY));
+        print(BillingCompanyFactory.createBillingCompany("FNB","www.fnb.co.za",BillingCompanyType.CREDIT_CARD_PROVIDER));
+        print(BillingCompanyFactory.createBillingCompany("Telkom","www.telkom.co.za",BillingCompanyType.TELECOMS));
     }
 
 }
