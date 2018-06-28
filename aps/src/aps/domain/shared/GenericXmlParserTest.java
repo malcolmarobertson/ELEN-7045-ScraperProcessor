@@ -3,7 +3,7 @@ package aps.domain.shared;
 import aps.domain.model.scrape.DataPair;
 import aps.domain.model.scrape.DataPairs;
 import aps.domain.model.scrape.ScrapeObject;
-import aps.domain.model.scraperror.ScrapeError;
+import aps.domain.model.error.ScrapeError;
 import org.junit.Before;
 import org.junit.Ignore;
 

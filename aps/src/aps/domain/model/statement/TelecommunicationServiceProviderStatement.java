@@ -5,7 +5,9 @@ import java.math.BigDecimal;
 /**
  * Statement class representing all the statements for Telco Service Providers. Assumption is that all the Telco Service Providers will have the same fields.
  */
-public class TelecommunicationServiceProviderStatement extends Statement{
+public class TelecommunicationServiceProviderStatement extends Statement {
+
+    public static final StatementType statementType = StatementType.TELECOMS;
 
     private String telephoneNumber;
     private BigDecimal serviceCharges;

@@ -8,27 +8,32 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import static aps.domain.shared.ApplicationConstants.CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE;
+import static aps.domain.shared.ApplicationConstants.MUNICIPALITY_BILLING_COMPANY_TYPE;
+import static aps.domain.shared.ApplicationConstants.TELECOMS_BILLING_COMPANY_TYPE;
+
 public class BillingCompanyFactory {
 
     //Backed up on a permanent storage under customer credentials
-    private static UUID generateID(){
+    private static UUID generateID() {
         return UUID.randomUUID();
     }
+
     private static Map<String, BillingCompany> billingCompanyMap = new HashMap<String, BillingCompany>();
 
     /**
      * Must search database/file for existing billingCompany instances with same url
      */
-    public static boolean billingCompanyURLExist(String baseUrl){
+    public static boolean billingCompanyURLExist(String baseUrl) {
         return billingCompanyMap.containsKey(baseUrl);
     }
 
-    public static BillingCompany getBillingCompany(String baseUrl){
+    public static BillingCompany getBillingCompany(String baseUrl) {
         return billingCompanyMap.get(baseUrl);
     }
 
-    private static BillingCompany getBillingCompany(String companyName, String companyUrl, StatementType statementType, ScrapeConfiguration scrapeConfiguration, Statement statement){
-        if (billingCompanyURLExist(companyUrl)){
+    private static BillingCompany getBillingCompany(String companyName, String companyUrl, String statementType, ScrapeConfiguration scrapeConfiguration, Statement statement) {
+        if (billingCompanyURLExist(companyUrl)) {
             return getBillingCompany(companyUrl);
         }
         BillingCompany billingCompany = new BillingCompany(generateID());
@@ -36,18 +41,18 @@ public class BillingCompanyFactory {
         billingCompany.setBaseUrl(companyUrl);
         billingCompany.setBillingCompanyType(statementType);
         billingCompany.setScrapeConfiguration(scrapeConfiguration);
-        billingCompanyMap.put(companyUrl,billingCompany);
+        billingCompanyMap.put(companyUrl, billingCompany);
         return billingCompany;
     }
 
-    public static BillingCompany createBillingCompany(String companyName, String baseURL, StatementType billingCompanyType){
-        switch (billingCompanyType){
-            case TELECOMS:
-                return getBillingCompany(companyName,baseURL,StatementType.TELECOMS,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createStatement(StatementType.TELECOMS));
-            case MUNICIPALITY:
-                return getBillingCompany(companyName,baseURL,StatementType.MUNICIPALITY,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createStatement(StatementType.MUNICIPALITY));
-            case CREDIT_CARD_PROVIDER:
-                return getBillingCompany(companyName,baseURL,StatementType.CREDIT_CARD_PROVIDER,ScrapeConfigurationFactory.createScrapeConfiguration(),StatementFactory.createStatement(StatementType.CREDIT_CARD_PROVIDER));
+    public static BillingCompany createBillingCompany(String companyName, String baseURL, String billingCompanyType) {
+        switch (billingCompanyType) {
+            case TELECOMS_BILLING_COMPANY_TYPE:
+                return getBillingCompany(companyName, baseURL, TELECOMS_BILLING_COMPANY_TYPE, ScrapeConfigurationFactory.createScrapeConfiguration(), StatementFactory.createStatement(TELECOMS_BILLING_COMPANY_TYPE));
+            case MUNICIPALITY_BILLING_COMPANY_TYPE:
+                return getBillingCompany(companyName, baseURL, MUNICIPALITY_BILLING_COMPANY_TYPE, ScrapeConfigurationFactory.createScrapeConfiguration(), StatementFactory.createStatement(MUNICIPALITY_BILLING_COMPANY_TYPE));
+            case CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE:
+                return getBillingCompany(companyName, baseURL, CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE, ScrapeConfigurationFactory.createScrapeConfiguration(), StatementFactory.createStatement(CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE));
             default:
                 return null;
         }

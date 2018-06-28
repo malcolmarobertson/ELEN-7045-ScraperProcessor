@@ -42,6 +42,12 @@ public class ScrapServiceImpl implements IScrapService {
         } else if (scrapeRequest.getBaseUrl().equals("www.telkom.co.za")) {
             scrapeResponse.setXmlResponse(XmlFileReader.readFile(ApplicationConstants.VALID_TELKOM_SCRAPE_FILE));
             scrapeResponse.setScrapeResult(ScrapeResult.SUCCESSFUL);
+        } else if (scrapeRequest.getBaseUrl().equals("www.success-scrape-test.com")) {
+            scrapeResponse.setXmlResponse(XmlFileReader.readFile(ApplicationConstants.SCRAP_SUCCESS_TEST_FILE));
+            scrapeResponse.setScrapeResult(ScrapeResult.SUCCESSFUL);
+        } else if (scrapeRequest.getBaseUrl().equals("www.failure-scrape-test.com")) {
+            scrapeResponse.setXmlResponse(XmlFileReader.readFile(ApplicationConstants.SCRAP_FAILURE_TEST_FILE));
+            scrapeResponse.setScrapeResult(ScrapeResult.FAILED);
         }
 
         return scrapeResponse;

@@ -24,5 +24,61 @@
             <text>Opening Balance</text>
             <value>R0.78</value>
         </datapair>
+        <datapair id="006">
+            <text>Closing Balance</text>
+            <value>R0.78</value>
+        </datapair>
+        <datapair id="007">
+            <text>Account Name</text>
+            <value>Mike Jones</value>
+        </datapair>
+        <datapair id="008">
+            <text>Statement Date</text>
+            <value>20/01/2008</value>
+        </datapair>
+        <datapair id="009">
+            <text>Payment Due Date</text>
+            <value>20/01/2008</value>
+        </datapair>
+        <datapair id="010">
+            <text>Month</text>
+            <value>January</value>
+        </datapair>
+        <datapair id="011">
+            <text>Total Owed</text>
+            <value>R512.22</value>
+        </datapair>
+        <datapair id="012">
+            <text>New Charges</text>
+            <value>R51.22</value>
+        </datapair>
+        <datapair id="013">
+            <text>Amount Deducted</text>
+            <value>R5.22</value>
+        </datapair>
+        <datapair id="014">
+            <text>Amount Deducted</text>
+            <value>R5.22</value>
+        </datapair>
+        <datapair id="015">
+            <text>Discount</text>
+            <value>R59.22</value>
+        </datapair>
+        <datapair id="016">
+            <text>VAT</text>
+            <value>R59.22</value>
+        </datapair>
+        <datapair id="017">
+            <text>Call charges</text>
+            <value>R509.22</value>
+        </datapair>
+        <datapair id="018">
+            <text>Total number of calls</text>
+            <value>200</value>
+        </datapair>
+        <datapair id="019">
+            <text>Total call duration</text>
+            <value>2000</value>
+        </datapair>
     </datapairs>
 </scrape-session>

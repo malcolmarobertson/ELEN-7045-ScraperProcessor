@@ -9,7 +9,7 @@ public class BillingCompany {
     private String name;
     private String baseUrl;
     private UUID id;
-    private StatementType statementType;
+    private String billingCompanyType;
     private ScrapeConfiguration scrapeConfiguration;
 
     public BillingCompany(UUID id) {
@@ -39,16 +39,16 @@ public class BillingCompany {
         return id;
     }
 
-    public StatementType getBillingCompanyType() {
-        return statementType;
-    }
-
-    public void setBillingCompanyType(StatementType statementType) {
-        this.statementType = statementType;
-    }
-
     public ScrapeConfiguration getScrapeConfiguration() {
         return scrapeConfiguration;
+    }
+
+    public String getBillingCompanyType() {
+        return billingCompanyType;
+    }
+
+    public void setBillingCompanyType(String billingCompanyType) {
+        this.billingCompanyType = billingCompanyType;
     }
 
     public void setScrapeConfiguration(ScrapeConfiguration scrapeConfiguration) {

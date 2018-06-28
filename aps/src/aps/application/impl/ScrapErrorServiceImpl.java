@@ -2,12 +2,12 @@ package aps.application.impl;
 
 import aps.application.IScrapErrorService;
 import aps.domain.model.customer.CustomerBillingAccount;
-import aps.domain.model.scraperror.*;
+import aps.domain.model.error.*;
 import aps.domain.shared.ApplicationConstants;
 import aps.domain.shared.GenericXmlParser;
 import aps.domain.shared.ScrapeResponse;
 
-import static aps.domain.model.scraperror.ScrapeErrorCode.*;
+import static aps.domain.model.error.ScrapeErrorCode.*;
 
 public class ScrapErrorServiceImpl implements IScrapErrorService {
 
@@ -15,26 +15,26 @@ public class ScrapErrorServiceImpl implements IScrapErrorService {
     public String handleScrapeError(ScrapeResponse scrapeResponse, CustomerBillingAccount customerBillingAccount) {
         GenericXmlParser genericXmlParser = new GenericXmlParser(ScrapeError.class);
         ScrapeError scrapeObject = (ScrapeError) genericXmlParser.parseScrapXml(scrapeResponse.getXmlResponse());
-        ScrapeErrorContext scrapeErrorContext = new ScrapeErrorContext();
-        setCorrectScrapErrorContext(scrapeObject, scrapeErrorContext);
+        ErrorContext errorContext = new ErrorContext();
+        setCorrectScrapErrorContext(scrapeObject, errorContext);
         System.out.println("Setting customer account to " + ApplicationConstants.INACTIVE + ".");
         customerBillingAccount.setAccountStatus(ApplicationConstants.INACTIVE);
-        return scrapeErrorContext.handleScrapeError();
+        return errorContext.handleError();
     }
 
-    private void setCorrectScrapErrorContext(ScrapeError scrapeObject, ScrapeErrorContext scrapeErrorContext) {
+    private void setCorrectScrapErrorContext(ScrapeError scrapeObject, ErrorContext errorContext) {
         if (INVALID_CREDENTIALS.toString().equals(scrapeObject.getScrapeErrorCode())) {
-            scrapeErrorContext.setScrapeErrorStrategy(new InvalidCredentialsScrapeError());
+            errorContext.setScrapeStrategy(new InvalidCredentialsError());
         } else if (NOT_SIGNED_FOR_EBILLING.toString().equals(scrapeObject.getScrapeErrorCode())) {
-            scrapeErrorContext.setScrapeErrorStrategy(new NotSignedForEBillingScrapeError());
+            errorContext.setScrapeStrategy(new NotSignedForEBillingError());
         } else if (CUSTOMER_ACTION_REQUIRED.toString().equals(scrapeObject.getScrapeErrorCode())) {
-            scrapeErrorContext.setScrapeErrorStrategy(new CustomerActionRequiredScrapeError());
+            errorContext.setScrapeStrategy(new CustomerActionRequiredError());
         } else if (SITE_DOWN.toString().equals(scrapeObject.getScrapeErrorCode())) {
-            scrapeErrorContext.setScrapeErrorStrategy(new SiteDownScrapeError());
+            errorContext.setScrapeStrategy(new SiteDownError());
         } else if (ERROR_PAGE.toString().equals(scrapeObject.getScrapeErrorCode())) {
-            scrapeErrorContext.setScrapeErrorStrategy(new ErrorPageScrapeError());
+            errorContext.setScrapeStrategy(new ErrorPageError());
         } else if (BROKEN_SCRIPT.toString().equals(scrapeObject.getScrapeErrorCode())) {
-            scrapeErrorContext.setScrapeErrorStrategy(new BrokenScriptScrapeError());
+            errorContext.setScrapeStrategy(new BrokenScriptError());
         }
     }
 }

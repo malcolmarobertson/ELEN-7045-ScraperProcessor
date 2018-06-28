@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class MunicipalityStatement extends Statement {
 
+    public static final StatementType statementType = StatementType.MUNICIPALITY;
     public int instalmentNotice;
     public int electricityUsed;
     public BigDecimal electricityCharges;
@@ -16,6 +17,13 @@ public class MunicipalityStatement extends Statement {
     public BigDecimal waterCharges;
     public BigDecimal sewerageCharges;
     public BigDecimal refuseCharges;
+
+    /**
+     * Represents a Custom Integrity Check for the MunicipalityStatement
+     */
+    public boolean checkWaterChargedCorrectly(){
+        return Boolean.FALSE;
+    }
 
     public int getInstalmentNotice() {
         return instalmentNotice;

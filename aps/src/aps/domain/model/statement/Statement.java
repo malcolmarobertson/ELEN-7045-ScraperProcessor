@@ -1,5 +1,6 @@
 package aps.domain.model.statement;
 
+import aps.domain.service.ValidationService;
 import aps.domain.shared.Month;
 
 import java.math.BigDecimal;
@@ -11,23 +12,52 @@ import java.util.Objects;
  * Potentially use the Builder pattern to cater for Requirement 3.2.2 which says:
  * It is expected that additional statement types will identified in future.
  */
-public abstract class Statement {
+public abstract class Statement implements ValidationService {
 
+    //VAT Rate assumed to be fixed at 14%
+    public static final double vatRate = 0.14;
     private int id;
+    public StatementType statementType;
     public String accountNumber;
     public String accountHolderName;
-    public Date statementDate;
+    public String statementDate;
     public String statementNumber;
-    public Month month;
+    public String month;
     public BigDecimal totalDue;
     public Date dueDate;
     public BigDecimal openingBalance;
     public BigDecimal closingBalance;
-    public boolean paymentReceived;
+    public BigDecimal paymentReceived;
     public BigDecimal newCharges;
     public BigDecimal deductions;
     public BigDecimal discount;
     public BigDecimal vatAmount;
+
+    /**
+     * Below are examples of Standard Integrity checks that can be run for all Statement Types, should they be required.
+     */
+    public BigDecimal calculateVatAmount(BigDecimal amount) {
+        return BigDecimal.valueOf(vatRate).multiply(amount);
+    }
+
+    public BigDecimal calculateOpeningBalance() {
+        return openingBalance.subtract(paymentReceived).add(newCharges).subtract(discount).subtract(deductions);
+    }
+
+    @Override
+    public boolean validateInteger() {
+        return false;
+    }
+
+    @Override
+    public boolean validateDate() {
+        return false;
+    }
+
+    @Override
+    public boolean validateTotalAmount(BigDecimal expectedAmount, BigDecimal actualAmount) {
+        return false;
+    }
 
     public String getAccountNumber() {
         return accountNumber;
@@ -45,11 +75,11 @@ public abstract class Statement {
         this.accountHolderName = accountHolderName;
     }
 
-    public Date getStatementDate() {
+    public String getStatementDate() {
         return statementDate;
     }
 
-    public void setStatementDate(Date statementDate) {
+    public void setStatementDate(String statementDate) {
         this.statementDate = statementDate;
     }
 
@@ -61,11 +91,11 @@ public abstract class Statement {
         this.statementNumber = statementNumber;
     }
 
-    public Month getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(Month month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 
@@ -101,11 +131,11 @@ public abstract class Statement {
         this.closingBalance = closingBalance;
     }
 
-    public boolean isPaymentReceived() {
+    public BigDecimal getPaymentReceived() {
         return paymentReceived;
     }
 
-    public void setPaymentReceived(boolean paymentReceived) {
+    public void setPaymentReceived(BigDecimal paymentReceived) {
         this.paymentReceived = paymentReceived;
     }
 

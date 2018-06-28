@@ -1,4 +1,4 @@
-package aps.domain.model.scraperror;
+package aps.domain.model.error;
 
 /**
  * Enum representing ScrapeErrorCode Value Object

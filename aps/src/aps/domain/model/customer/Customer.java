@@ -9,6 +9,8 @@ import java.util.UUID;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Customer {
 
+    public static final Integer MAX_NUMBER_OF_CREDENTIALS = 5;
+
     private UUID id;
 
     @XmlElement
@@ -32,6 +34,13 @@ public class Customer {
     @XmlElementWrapper(name = "customerBillingAccounts")
     @XmlElement(name = "customerBillingAccount")
     private List<CustomerBillingAccount> customerBillingAccounts;
+
+    /**
+     * Method checks if the Customer already has the maximum number of 5 credential text/encrypted password combination pairs.
+     */
+    public boolean customerReachedMaxAllowedCredentialsForAccount(CustomerBillingAccount customerBillingAccount) {
+        return !(customerBillingAccount.getAccountCredentials().size() >= MAX_NUMBER_OF_CREDENTIALS);
+    }
 
     public Customer(UUID id) {
         this.id = id;

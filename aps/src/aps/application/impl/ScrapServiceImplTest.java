@@ -1,11 +1,15 @@
 package aps.application.impl;
 
+import aps.application.util.ScrapeResult;
 import aps.domain.shared.ScrapeRequest;
+import aps.domain.shared.ScrapeResponse;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class ScrapServiceImplTest {
     ScrapServiceImpl toTest;
@@ -23,11 +27,33 @@ public class ScrapServiceImplTest {
     @Test
     public void scrapWebsite() {
 //        assertEquals("www.telkom.co.za", toTest.scrapWebsite(buildScrapRequestFailure()).getBaseUrl());
-        assertEquals("Account no", toTest.getScrapResponse(buildScrapRequestSuccess()));
+        assertEquals("Account no", toTest.getScrapResponse(buildScrapRequestSuccess()).getXmlResponse());
     }
 
     @Test
     public void getScrapResponse() {
+    }
+
+    @Test
+    public void shouldReturnScrapeSuccessfulResponse() {
+        //given
+        toTest = new ScrapServiceImpl();
+        ScrapeRequest scrapeRequest = buildScrapRequestSuccess();
+        //when
+        ScrapeResponse scrapResponse = toTest.getScrapResponse(scrapeRequest);
+        //then
+        assertEquals(scrapResponse.getScrapeResult(), ScrapeResult.SUCCESSFUL);
+    }
+
+    @Test
+    public void shouldReturnScrapeFailedResponse() {
+        //given
+        toTest = new ScrapServiceImpl();
+        ScrapeRequest scrapeRequest = buildScrapRequestFailure();
+                //when
+        ScrapeResponse scrapResponse = toTest.getScrapResponse(scrapeRequest);
+        //then
+        assertEquals(scrapResponse.getScrapeResult(), ScrapeResult.FAILED);
     }
 
     private String readSampleScrapeResponse() {
@@ -39,7 +65,7 @@ public class ScrapServiceImplTest {
         ScrapeRequest scrapeRequest = new ScrapeRequest();
         scrapeRequest.setUserIdentification("test_failure_user");
         scrapeRequest.setPassCode("test_passcode");
-        scrapeRequest.setBaseUrl("www.scrape-test.com");
+        scrapeRequest.setBaseUrl("www.failure-scrape-test.com");
         return scrapeRequest;
     }
 
@@ -47,7 +73,7 @@ public class ScrapServiceImplTest {
         ScrapeRequest scrapeRequest = new ScrapeRequest();
         scrapeRequest.setUserIdentification("test_success_user");
         scrapeRequest.setPassCode("test_passcode");
-        scrapeRequest.setBaseUrl("www.scrape-test.com");
+        scrapeRequest.setBaseUrl("www.success-scrape-test.com");
         return scrapeRequest;
     }
 

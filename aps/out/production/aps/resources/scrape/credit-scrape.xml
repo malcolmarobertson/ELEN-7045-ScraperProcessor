@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <scrape-session>
-    <base-url>www.telkom.co.za</base-url>
+    <base-url>www.credit.com</base-url>
     <date>10/01/2008</date>
     <time>13:50:00</time>
     <datapairs>
         <datapair id="001">
-            <text>Account no</text>
+            <text>Account Number</text>
             <value>53844946068883</value>
         </datapair>
         <datapair id="002">
-            <text>Service ref</text>
+            <text>Reference</text>
             <value>0117838898</value>
         </datapair>
         <datapair id="003">
@@ -17,7 +17,7 @@
             <value>R512.22</value>
         </datapair>
         <datapair id="004">
-            <text>Payment</text>
+            <text>Payment Received</text>
             <value>R513.00</value>
         </datapair>
         <datapair id="005">
@@ -37,15 +37,15 @@
             <value>20/01/2008</value>
         </datapair>
         <datapair id="009">
-            <text>Payment Due Date</text>
+            <text>Due Date</text>
             <value>20/01/2008</value>
         </datapair>
         <datapair id="010">
-            <text>Month</text>
+            <text>Statement Month</text>
             <value>January</value>
         </datapair>
         <datapair id="011">
-            <text>Total Owed</text>
+            <text>Total</text>
             <value>R512.22</value>
         </datapair>
         <datapair id="012">
@@ -69,16 +69,16 @@
             <value>R59.22</value>
         </datapair>
         <datapair id="017">
-            <text>Call charges</text>
-            <value>R509.22</value>
+            <text>Card type</text>
+            <value>Platinum</value>
         </datapair>
         <datapair id="018">
-            <text>Total number of calls</text>
-            <value>200</value>
+            <text>Credit limit</text>
+            <value>R200.00</value>
         </datapair>
         <datapair id="019">
-            <text>Total call duration</text>
-            <value>2000</value>
+            <text>Credit available</text>
+            <value>R2000.00</value>
         </datapair>
     </datapairs>
 </scrape-session>

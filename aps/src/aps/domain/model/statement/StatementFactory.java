@@ -1,14 +1,18 @@
 package aps.domain.model.statement;
 
-public class StatementFactory{
+import static aps.domain.shared.ApplicationConstants.CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE;
+import static aps.domain.shared.ApplicationConstants.MUNICIPALITY_BILLING_COMPANY_TYPE;
+import static aps.domain.shared.ApplicationConstants.TELECOMS_BILLING_COMPANY_TYPE;
 
-    public static Statement createStatement(StatementType statementType){
-        switch (statementType){
-            case TELECOMS:
+public class StatementFactory {
+
+    public static Statement createStatement(String statementType) {
+        switch (statementType) {
+            case TELECOMS_BILLING_COMPANY_TYPE:
                 return new TelecommunicationServiceProviderStatement();
-            case MUNICIPALITY:
+            case MUNICIPALITY_BILLING_COMPANY_TYPE:
                 return new MunicipalityStatement();
-            case CREDIT_CARD_PROVIDER:
+            case CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE:
                 return new CreditCardStatement();
             default:
                 return null;

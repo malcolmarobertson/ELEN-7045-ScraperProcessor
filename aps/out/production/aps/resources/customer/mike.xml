@@ -12,6 +12,7 @@
             <billingCompany>
                 <name>Telkom</name>
                 <baseUrl>www.telkom.co.za</baseUrl>
+                <billingCompanyType>TELECOMS</billingCompanyType>
             </billingCompany>
             <accountCredentials>
                 <userName>mike</userName>
@@ -23,6 +24,7 @@
             <billingCompany>
                 <name>Edgars</name>
                 <baseUrl>www.edgars.co.za</baseUrl>
+                <billingCompanyType>CREDIT_CARD_PROVIDER</billingCompanyType>
             </billingCompany>
             <accountCredentials>
                 <userName>mike</userName>

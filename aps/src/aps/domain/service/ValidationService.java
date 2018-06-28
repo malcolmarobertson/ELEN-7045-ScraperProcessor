@@ -1,6 +1,16 @@
 package aps.domain.service;
 
-import aps.application.IValidationService;
+import java.math.BigDecimal;
 
-public class ValidationService implements IValidationService {
+public interface ValidationService {
+
+    BigDecimal calculateVatAmount(BigDecimal amount);
+
+    BigDecimal calculateOpeningBalance();
+
+    boolean validateInteger();
+
+    boolean validateDate();
+
+    boolean validateTotalAmount(BigDecimal expectedAmount, BigDecimal actualAmount);
 }

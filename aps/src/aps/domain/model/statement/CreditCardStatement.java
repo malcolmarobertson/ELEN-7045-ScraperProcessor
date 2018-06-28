@@ -1,11 +1,15 @@
 package aps.domain.model.statement;
 
+import aps.domain.service.ValidationService;
+
 import java.math.BigDecimal;
 
 /**
  * Statement class representing all the statements for Credit Card Providers. Assumption is that all the Credit Card Providers will have the same fields.
  */
 public class CreditCardStatement extends Statement {
+
+    public static final StatementType statementType = StatementType.CREDIT_CARD_PROVIDER;
     private String cardType;
     private double interestRate;
     private BigDecimal creditLimit;
@@ -51,4 +55,5 @@ public class CreditCardStatement extends Statement {
     public void setMinimumAmountDue(BigDecimal minimumAmountDue) {
         this.minimumAmountDue = minimumAmountDue;
     }
+
 }

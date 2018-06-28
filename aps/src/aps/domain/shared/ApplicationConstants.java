@@ -20,6 +20,8 @@ public class ApplicationConstants {
     public static final String SCRAPE_FILE_BASE_PATH = "src/resources/scrape/";
     public static final String CUSTOMER_FILE_BASE_PATH = "src/resources/customer/";
     public static final String STATEMENT_FILE_BASE_PATH = "src/resources/statement/";
+    public static final String SCRAP_SUCCESS_TEST_FILE = "src/resources/scrape/test-success-scrape.xml";
+    public static final String SCRAP_FAILURE_TEST_FILE = "src/resources/scrape/test-failure-scrape.xml";
     public static final String XML_EXTENSION = ".xml";
 
     /**
@@ -46,4 +48,10 @@ public class ApplicationConstants {
     public static final String SALT = "5b3241141d41bf84e7ed3e14";
     public static final String KEY = "5b3241141d41bf84e7ed3e14";
 
+    /**
+     * Billing Company Types
+     */
+    public static final String TELECOMS_BILLING_COMPANY_TYPE = "TELECOMS";
+    public static final String MUNICIPALITY_BILLING_COMPANY_TYPE = "MUNICIPALITY";
+    public static final String CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE = "CREDIT_CARD_PROVIDER";
 }
