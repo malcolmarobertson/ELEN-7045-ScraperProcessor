@@ -26,7 +26,7 @@ public class ApplicationConstants {
      * Scrape Error messages returned back to the user.
      */
     public static final String INVALID_CREDENTIALS = "Invalid Credentials! Please update credentials before attempting to scrape again.";
-    public static final String CUSTOMER_ACTION_REQUIRED = "Action Required by Billing Company’s Website! Please agree to the new Ts & Cs before attempting to scrape again.";
+    public static final String CUSTOMER_ACTION_REQUIRED = "Action Required by User! Please agree to the new Ts & Cs before attempting to scrape again.";
     public static final String BROKEN_SCRIPT = "Error occured! Please contact the Technical Team for support.";
     public static final String ERROR_PAGE = "Currently experience high volumes. Please try again later";
     public static final String NOT_SIGNED_FOR_EBILLING = "Not signed up for e-Billing! Please complete the signup process before the scrape is attempted again";

@@ -42,7 +42,7 @@ public class CustomerServiceImpl implements ICustomerService {
         for (CustomerBillingAccount customerBillingAccount : customer.getCustomerBillingAccounts()) {
             if (customerBillingAccount.getBillingCompany().getName().equals(billingCompany)) {
                 scrapeResult = scrapeWebsite(customerBillingAccount);
-                Statement statement = customerBillingAccount.getBillingCompany().getStatement();
+//                Statement statement = customerBillingAccount.getBillingCompany().getStatement();
                 break;
                 //TODO: Map and validate the scrapeObject to the statement object.
             }

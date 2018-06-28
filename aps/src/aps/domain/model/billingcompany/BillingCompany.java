@@ -11,13 +11,13 @@ public class BillingCompany {
     private UUID id;
     private StatementType statementType;
     private ScrapeConfiguration scrapeConfiguration;
-    private Statement statement;
 
-    public BillingCompany(UUID id){
+    public BillingCompany(UUID id) {
         this.id = id;
     }
 
-    public BillingCompany(){}
+    public BillingCompany() {
+    }
 
     public String getName() {
         return name;
@@ -53,14 +53,6 @@ public class BillingCompany {
 
     public void setScrapeConfiguration(ScrapeConfiguration scrapeConfiguration) {
         this.scrapeConfiguration = scrapeConfiguration;
-    }
-
-    public Statement getStatement() {
-        return statement;
-    }
-
-    public void setStatement(Statement statement) {
-        this.statement = statement;
     }
 
 }

@@ -9,7 +9,6 @@ public class BillingCompanyFactoryTest {
         System.out.println(billingCompany.getName());
         System.out.println(billingCompany.getBaseUrl());
         System.out.println(billingCompany.getBillingCompanyType());
-        System.out.println("Statement instance: "+ billingCompany.getStatement());
         System.out.println("Scrape Configuration Instance: "+ billingCompany.getScrapeConfiguration());
 
     }

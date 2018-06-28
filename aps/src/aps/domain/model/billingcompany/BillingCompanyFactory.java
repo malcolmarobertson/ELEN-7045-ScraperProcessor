@@ -10,7 +10,6 @@ import java.util.UUID;
 
 public class BillingCompanyFactory {
 
-
     //Backed up on a permanent storage under customer credentials
     private static UUID generateID(){
         return UUID.randomUUID();
@@ -37,7 +36,6 @@ public class BillingCompanyFactory {
         billingCompany.setBaseUrl(companyUrl);
         billingCompany.setBillingCompanyType(statementType);
         billingCompany.setScrapeConfiguration(scrapeConfiguration);
-        billingCompany.setStatement(statement);
         billingCompanyMap.put(companyUrl,billingCompany);
         return billingCompany;
     }
