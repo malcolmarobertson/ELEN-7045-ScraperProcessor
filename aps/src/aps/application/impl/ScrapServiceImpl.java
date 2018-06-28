@@ -1,6 +1,5 @@
 package aps.application.impl;
 
-import aps.application.IScrapErrorService;
 import aps.application.IScrapService;
 import aps.application.util.ScrapeResult;
 import aps.application.util.XmlFileReader;
@@ -15,8 +14,6 @@ import aps.domain.shared.ScrapeResponse;
  * Using the Telkom Billing Company will return a valid scrape response.
  */
 public class ScrapServiceImpl implements IScrapService {
-
-    IScrapErrorService scrapErrorService;
 
     @Override
     public ScrapeResponse scrapWebsite(ScrapeRequest scrapeRequest) {

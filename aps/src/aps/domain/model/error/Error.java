@@ -10,7 +10,7 @@ import java.util.Objects;
 //TODO: Handle xml unmarshalling using generic to re-use the ScrapeObject unmarshalling class.
 @XmlRootElement(name = "scrape-session")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ScrapeError {
+public class Error {
 
     @XmlElement
     private String scrapeErrorCode;
@@ -80,7 +80,7 @@ public class ScrapeError {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ScrapeError that = (ScrapeError) o;
+        Error that = (Error) o;
         return scrapeErrorCode == that.scrapeErrorCode &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(time, that.time) &&

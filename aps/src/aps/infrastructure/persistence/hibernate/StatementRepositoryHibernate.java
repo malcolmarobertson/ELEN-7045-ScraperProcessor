@@ -22,11 +22,13 @@ public class StatementRepositoryHibernate implements StatementRepository {
     }
 
     @Override
-    public void save(Statement statement) {
+    public void add(Statement statement) {
         genericXmlParser = new GenericXmlParser(Statement.class);
         String xmlScrapeErrorEntry = genericXmlParser.marshallScrapXml(statement);
-        String filePath = STATEMENT_FILE_BASE_PATH + statement.getStatementNumber() + "-statement" + XML_EXTENSION;
+        String filePath = STATEMENT_FILE_BASE_PATH + statement.getAccountHolderName() + "-statement" + XML_EXTENSION;
         XmlFileWriter.writeFile(filePath, xmlScrapeErrorEntry);
+        System.out.println("Statement save simulated by writing to file: " + filePath + ".");
+        System.out.println("");
     }
 
     @Override

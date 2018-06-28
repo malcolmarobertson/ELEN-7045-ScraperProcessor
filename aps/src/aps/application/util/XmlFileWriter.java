@@ -1,16 +1,16 @@
 package aps.application.util;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
 
 public class XmlFileWriter {
 
     public static String writeFile(String filePath, String fileContents) {
         String xmlString = "";
+        File file = new File(filePath);
+
         try {
-            FileWriter fileWriter = new FileWriter(filePath);
+            FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(fileContents);
             bufferedWriter.close();

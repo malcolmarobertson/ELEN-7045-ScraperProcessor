@@ -1,9 +1,9 @@
 package aps.infrastructure.persistence.hibernate;
 
 import aps.application.util.XmlFileWriter;
+import aps.domain.model.error.Error;
 import aps.domain.model.scrape.ScrapeObject;
 import aps.domain.model.scrape.ScrapeRepository;
-import aps.domain.model.error.ScrapeError;
 import aps.domain.shared.GenericXmlParser;
 
 import static aps.domain.shared.ApplicationConstants.SCRAPE_FILE_BASE_PATH;
@@ -23,8 +23,8 @@ public class ScrapeRepositoryHibernate implements ScrapeRepository {
     }
 
     @Override
-    public void save(ScrapeObject scrapeObject) {
-        genericXmlParser = new GenericXmlParser(ScrapeError.class);
+    public void add(ScrapeObject scrapeObject) {
+        genericXmlParser = new GenericXmlParser(Error.class);
         String xmlScrapeErrorEntry = genericXmlParser.marshallScrapXml(scrapeObject);
         String filePath = SCRAPE_FILE_BASE_PATH + scrapeObject.getBillingCompanyName() + "-scrape-entry-"
                 + scrapeObject.getDate() + scrapeObject.getTime() + XML_EXTENSION;

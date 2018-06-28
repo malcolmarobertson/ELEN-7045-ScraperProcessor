@@ -1,9 +1,9 @@
 package aps.domain.shared;
 
+import aps.domain.model.error.Error;
 import aps.domain.model.scrape.DataPair;
 import aps.domain.model.scrape.DataPairs;
 import aps.domain.model.scrape.ScrapeObject;
-import aps.domain.model.error.ScrapeError;
 import org.junit.Before;
 import org.junit.Ignore;
 
@@ -24,15 +24,15 @@ public class GenericXmlParserTest {
     @Before
     public void init() {
         toTestScrapeObject = new GenericXmlParser(ScrapeObject.class);
-        toTestScrapeError = new GenericXmlParser(ScrapeError.class);
+        toTestScrapeError = new GenericXmlParser(Error.class);
     }
 
     @org.junit.Test
     public void parseScrapXml() {
         assertEquals("www.telkom.co.za", ((ScrapeObject) toTestScrapeObject.parseScrapXml(getSampleXmlResponse())).getBaseUrl());
         assertEquals("Account no", ((ScrapeObject) toTestScrapeObject.parseScrapXml(getSampleXmlResponse())).getDataPairs().get(0).getText());
-        assertEquals("www.telkom.co.za", ((ScrapeError) toTestScrapeError.parseScrapXml(getSampleErrorXmlResponse())).getBaseUrl());
-        assertEquals("INVALID_CREDENTIALS", ((ScrapeError) toTestScrapeError.parseScrapXml(getSampleErrorXmlResponse())).getScrapeErrorCode());
+        assertEquals("www.telkom.co.za", ((Error) toTestScrapeError.parseScrapXml(getSampleErrorXmlResponse())).getBaseUrl());
+        assertEquals("INVALID_CREDENTIALS", ((Error) toTestScrapeError.parseScrapXml(getSampleErrorXmlResponse())).getScrapeErrorCode());
     }
 
     //TODO: To fix the problem with writing nested datapair tags
@@ -80,13 +80,13 @@ public class GenericXmlParserTest {
         return scrapeObject;
     }
 
-    private ScrapeError buildTestScrapeError() {
-        ScrapeError scrapeError = new ScrapeError();
-        scrapeError.setBaseUrl("www.telkom.co.za");
-        scrapeError.setDate("10/01/2008");
-        scrapeError.setTime("13:50:00");
-        scrapeError.setScrapeErrorCode("INVALID_CREDENTIALS");
-        return scrapeError;
+    private Error buildTestScrapeError() {
+        Error error = new Error();
+        error.setBaseUrl("www.telkom.co.za");
+        error.setDate("10/01/2008");
+        error.setTime("13:50:00");
+        error.setScrapeErrorCode("INVALID_CREDENTIALS");
+        return error;
     }
 
     private String getSampleXmlResponse() {

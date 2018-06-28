@@ -21,7 +21,12 @@ public class BillingCompanyRepositoryHibernate implements BillingCompanyReposito
     }
 
     @Override
-    public boolean save(BillingCompany billingCompany) {
+    public BillingCompany findByName(String baseURL) {
+        return null;
+    }
+
+    @Override
+    public boolean add(BillingCompany billingCompany) {
         if (billingCompanyRepo.containsKey(billingCompany.getBaseUrl())) {
             return false;
         }

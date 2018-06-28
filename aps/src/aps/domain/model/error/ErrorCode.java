@@ -1,9 +1,9 @@
 package aps.domain.model.error;
 
 /**
- * Enum representing ScrapeErrorCode Value Object
+ * Enum representing ErrorCode Value Object
  */
-public enum ScrapeErrorCode {
+public enum ErrorCode {
     INVALID_CREDENTIALS,
     NOT_SIGNED_FOR_EBILLING,
     CUSTOMER_ACTION_REQUIRED,

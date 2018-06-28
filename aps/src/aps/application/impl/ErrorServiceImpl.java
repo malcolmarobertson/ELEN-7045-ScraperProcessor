@@ -1,20 +1,23 @@
 package aps.application.impl;
 
-import aps.application.IScrapErrorService;
+import aps.application.IErrorService;
 import aps.domain.model.customer.CustomerBillingAccount;
 import aps.domain.model.error.*;
+import aps.domain.model.error.Error;
 import aps.domain.shared.ApplicationConstants;
 import aps.domain.shared.GenericXmlParser;
 import aps.domain.shared.ScrapeResponse;
+import aps.infrastructure.persistence.hibernate.ErrorRepositoryHibernate;
 
-import static aps.domain.model.error.ScrapeErrorCode.*;
+import static aps.domain.model.error.ErrorCode.*;
 
-public class ScrapErrorServiceImpl implements IScrapErrorService {
+public class ErrorServiceImpl implements IErrorService {
+    ErrorRepository errorRepository = new ErrorRepositoryHibernate();
 
     @Override
-    public String handleScrapeError(ScrapeResponse scrapeResponse, CustomerBillingAccount customerBillingAccount) {
-        GenericXmlParser genericXmlParser = new GenericXmlParser(ScrapeError.class);
-        ScrapeError scrapeObject = (ScrapeError) genericXmlParser.parseScrapXml(scrapeResponse.getXmlResponse());
+    public String handleError(ScrapeResponse scrapeResponse, CustomerBillingAccount customerBillingAccount) {
+        GenericXmlParser genericXmlParser = new GenericXmlParser(Error.class);
+        Error scrapeObject = (Error) genericXmlParser.parseScrapXml(scrapeResponse.getXmlResponse());
         ErrorContext errorContext = new ErrorContext();
         setCorrectScrapErrorContext(scrapeObject, errorContext);
         System.out.println("Setting customer account to " + ApplicationConstants.INACTIVE + ".");
@@ -22,7 +25,27 @@ public class ScrapErrorServiceImpl implements IScrapErrorService {
         return errorContext.handleError();
     }
 
-    private void setCorrectScrapErrorContext(ScrapeError scrapeObject, ErrorContext errorContext) {
+    @Override
+    public Error findByBaseUrl(String baseUrl) {
+        return errorRepository.findByBaseUrl(baseUrl);
+    }
+
+    @Override
+    public void add(Error error) {
+        errorRepository.add(error);
+    }
+
+    @Override
+    public void delete(Error error) {
+        errorRepository.delete(error);
+    }
+
+    @Override
+    public void update(Error error) {
+        errorRepository.update(error);
+    }
+
+    private void setCorrectScrapErrorContext(Error scrapeObject, ErrorContext errorContext) {
         if (INVALID_CREDENTIALS.toString().equals(scrapeObject.getScrapeErrorCode())) {
             errorContext.setScrapeStrategy(new InvalidCredentialsError());
         } else if (NOT_SIGNED_FOR_EBILLING.toString().equals(scrapeObject.getScrapeErrorCode())) {

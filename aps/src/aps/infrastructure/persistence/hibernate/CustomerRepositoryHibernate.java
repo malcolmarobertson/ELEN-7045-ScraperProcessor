@@ -42,7 +42,7 @@ public class CustomerRepositoryHibernate implements CustomerRepository {
     }
 
     @Override
-    public void save(Customer customer) {
+    public void add(Customer customer) {
         genericXmlParser = new GenericXmlParser(Customer.class);
         String xmlScrapeErrorEntry = genericXmlParser.marshallScrapXml(customer);
         String filePath = CUSTOMER_FILE_BASE_PATH + customer.getApsUserName() + XML_EXTENSION;

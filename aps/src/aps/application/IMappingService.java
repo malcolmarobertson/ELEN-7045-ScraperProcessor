@@ -5,7 +5,5 @@ import aps.domain.model.statement.Statement;
 import aps.domain.model.statement.StatementType;
 
 public interface IMappingService {
-
     Statement createCustomerStatement(ScrapeObject scrapeObject, String billingCompanyType);
-
 }

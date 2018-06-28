@@ -2,6 +2,7 @@ package aps.domain.model.statement;
 
 import aps.domain.service.ValidationService;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
 /**

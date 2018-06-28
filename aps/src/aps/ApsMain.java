@@ -54,7 +54,7 @@ public class ApsMain {
         try {
             currentCustomer = apsService.getCustomer(username);
         } catch (ApsException e) {
-            System.out.println("Failed to get user " + username);
+            System.out.println("Failed to find user " + username);
             System.out.println(e.getMessage());
         }
 

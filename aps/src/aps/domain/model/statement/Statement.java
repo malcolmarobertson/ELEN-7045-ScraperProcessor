@@ -3,6 +3,9 @@ package aps.domain.model.statement;
 import aps.domain.service.ValidationService;
 import aps.domain.shared.Month;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
@@ -12,6 +15,8 @@ import java.util.Objects;
  * Potentially use the Builder pattern to cater for Requirement 3.2.2 which says:
  * It is expected that additional statement types will identified in future.
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Statement implements ValidationService {
 
     //VAT Rate assumed to be fixed at 14%

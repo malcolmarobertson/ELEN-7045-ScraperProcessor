@@ -4,7 +4,9 @@ public interface BillingCompanyRepository {
 
     public BillingCompany findByURL(String baseURL);
 
-    public boolean save(BillingCompany BillingCompany);
+    public BillingCompany findByName(String baseURL);
+
+    public boolean add(BillingCompany BillingCompany);
 
     public boolean delete(BillingCompany BillingCompany);
 

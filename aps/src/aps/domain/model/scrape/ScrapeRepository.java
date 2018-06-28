@@ -4,7 +4,7 @@ public interface ScrapeRepository {
 
     public ScrapeObject findByBaseUrl(String baseUrl);
 
-    public void save(ScrapeObject scrapeObject);
+    public void add(ScrapeObject scrapeObject);
 
     public void delete(ScrapeObject scrapeObject);
 

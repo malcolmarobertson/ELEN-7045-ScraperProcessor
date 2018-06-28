@@ -10,7 +10,7 @@ public interface CustomerRepository {
 
     public Customer findByUserName(String username) throws ApsException;
 
-    public void save(Customer customer);
+    public void add(Customer customer);
 
     public void delete(Customer customer);
 

@@ -4,7 +4,7 @@ public interface StatementRepository {
 
     public Statement findById(int id);
 
-    public void save(Statement customer);
+    public void add(Statement customer);
 
     public void delete(Statement customer);
 

@@ -6,7 +6,6 @@ import aps.domain.exception.ApsException;
 import aps.domain.model.customer.Customer;
 import aps.domain.model.customer.CustomerBillingAccount;
 import aps.domain.model.scrape.ScrapeObject;
-import aps.domain.model.scrape.ScrapeRepository;
 import aps.domain.model.statement.Statement;
 import aps.domain.shared.ApplicationConstants;
 import aps.domain.shared.GenericXmlParser;
@@ -15,20 +14,18 @@ import aps.domain.shared.ScrapeResponse;
 
 public class ApsServiceImpl implements IApsService {
 
-    IScrapService scrapService;
-    IScrapErrorService scrapErrorService;
-    ICustomerService customerService;
-    ScrapeRepository scrapeRepository;
-    IMappingService mappingService;
+    IScrapService scrapService = new ScrapServiceImpl();
+    IErrorService errorService = new ErrorServiceImpl();
+    ICustomerService customerService = new CustomerServiceImpl();
+    IMappingService mappingService = new MappingServiceImpl();
+    IStatementService statementService = new StatementServiceImpl();
 
     @Override
     public Customer getCustomer(String username) throws ApsException {
-        customerService = new CustomerServiceImpl();
         return customerService.getCustomer(username);
     }
 
     public String scrapeWebsite(Customer customer, String billingCompany) {
-        scrapService = new ScrapServiceImpl();
         String scrapeResult = null;
 
         for (CustomerBillingAccount customerBillingAccount : customer.getCustomerBillingAccounts()) {
@@ -38,6 +35,11 @@ public class ApsServiceImpl implements IApsService {
             }
         }
         return scrapeResult;
+    }
+
+    @Override
+    public boolean addCustomerCredential(Customer customer, CustomerBillingAccount customerBillingAccount, String userName, String password) {
+        return customerService.addCustomerCredential(customer, customerBillingAccount, userName, password);
     }
 
     private String scrapeWebsite(CustomerBillingAccount customerBillingAccount) {
@@ -54,12 +56,14 @@ public class ApsServiceImpl implements IApsService {
         if (scrapeResponse.getScrapeResult().equals(ScrapeResult.SUCCESSFUL)) {
             GenericXmlParser genericXmlParser = new GenericXmlParser(ScrapeObject.class);
             scrapeObject = (ScrapeObject) genericXmlParser.parseScrapXml(scrapeResponse.getXmlResponse());
-            mappingService = new MappingServiceImpl();
             Statement statement = mappingService.createCustomerStatement(scrapeObject, customerBillingAccount.getBillingCompany().getBillingCompanyType());
+
+            //Persist the statement in an xml format.
+            statementService.add(statement);
             printStatementDetails(statement);
         } else {
-            scrapErrorService = new ScrapErrorServiceImpl();
-            return scrapErrorService.handleScrapeError(scrapeResponse, customerBillingAccount);
+            errorService = new ErrorServiceImpl();
+            return errorService.handleError(scrapeResponse, customerBillingAccount);
         }
         return ApplicationConstants.SCRAP_SUCCESSFUL + scrapeObject.getBaseUrl();
     }
