@@ -6,6 +6,8 @@ public interface ErrorRepository {
 
     public void add(Error Error);
 
+    public void logError(String errorString);
+
     public void delete(Error Error);
 
     public void update(Error Error);

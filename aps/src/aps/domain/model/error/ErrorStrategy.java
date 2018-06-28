@@ -6,5 +6,5 @@ package aps.domain.model.error;
 public interface ErrorStrategy {
     public String handleError();
 
-    public void saveError();
+    public void logError(String xmlErrorString);
 }

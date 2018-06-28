@@ -62,7 +62,6 @@ public class ApsServiceImpl implements IApsService {
             statementService.add(statement);
             printStatementDetails(statement);
         } else {
-            errorService = new ErrorServiceImpl();
             return errorService.handleError(scrapeResponse, customerBillingAccount);
         }
         return ApplicationConstants.SCRAP_SUCCESSFUL + scrapeObject.getBaseUrl();

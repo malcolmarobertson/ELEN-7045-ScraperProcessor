@@ -14,4 +14,9 @@ public class ErrorContext {
     public String handleError() {
         return strategy.handleError();
     }
+
+    //use the strategy
+    public void logError(String xmlErrorString) {
+        strategy.logError(xmlErrorString);
+    }
 }

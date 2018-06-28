@@ -27,7 +27,7 @@ public class StatementRepositoryHibernate implements StatementRepository {
         String xmlScrapeErrorEntry = genericXmlParser.marshallScrapXml(statement);
         String filePath = STATEMENT_FILE_BASE_PATH + statement.getAccountHolderName() + "-statement" + XML_EXTENSION;
         XmlFileWriter.writeFile(filePath, xmlScrapeErrorEntry);
-        System.out.println("Statement save simulated by writing to file: " + filePath + ".");
+        System.out.println("Statement save simulated by writing to file: " + "-" + filePath + ".");
         System.out.println("");
     }
 

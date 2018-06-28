@@ -6,8 +6,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
-//TODO: Handle date and time portions seperately in the xml string.
-//TODO: Handle xml unmarshalling using generic to re-use the ScrapeObject unmarshalling class.
 @XmlRootElement(name = "scrape-session")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Error {

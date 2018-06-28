@@ -22,6 +22,7 @@ public class ErrorServiceImpl implements IErrorService {
         setCorrectScrapErrorContext(scrapeObject, errorContext);
         System.out.println("Setting customer account to " + ApplicationConstants.INACTIVE + ".");
         customerBillingAccount.setAccountStatus(ApplicationConstants.INACTIVE);
+        errorContext.logError(scrapeResponse.getXmlResponse());
         return errorContext.handleError();
     }
 
