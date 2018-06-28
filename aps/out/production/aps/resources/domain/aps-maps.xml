@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <aps-maps>
-<standard-maps>
-    <standard-map>
-        <label>Account number</label>
-        <type>String</type>
-        <internalLabel>accountNumber</internalLabel>
-    </standard-map>
-    <standard-map>
-        <label>Statement number</label>
-        <type>String</type>
-        <internalLabel>statementNumber</internalLabel>
-    </standard-map>
-</standard-maps>
+    <standard-maps>
+        <standard-map>
+            <label>Account number</label>
+            <type>String</type>
+            <internalLabel>accountNumber</internalLabel>
+        </standard-map>
+        <standard-map>
+            <label>Statement number</label>
+            <type>String</type>
+            <internalLabel>statementNumber</internalLabel>
+        </standard-map>
+    </standard-maps>
+    <municip-maps>
+        <municip-map>
+            <label>Electricity used</label>
+            <type>int</type>
+            <internalLabel>electricityUsed</internalLabel>
+        </municip-map>
+    </municip-maps>
 </aps-maps>

@@ -7,15 +7,15 @@ import java.math.BigDecimal;
  */
 public class MunicipalityStatement extends Statement {
 
-    private int instalmentNotice;
-    private int electricityUsed;
-    private BigDecimal electricityCharges;
-    private int gasUsed;
-    private BigDecimal gasCharges;
-    private int waterUsed;
-    private BigDecimal waterCharges;
-    private BigDecimal sewerageCharges;
-    private BigDecimal refuseCharges;
+    public int instalmentNotice;
+    public int electricityUsed;
+    public BigDecimal electricityCharges;
+    public int gasUsed;
+    public BigDecimal gasCharges;
+    public int waterUsed;
+    public BigDecimal waterCharges;
+    public BigDecimal sewerageCharges;
+    public BigDecimal refuseCharges;
 
     public int getInstalmentNotice() {
         return instalmentNotice;

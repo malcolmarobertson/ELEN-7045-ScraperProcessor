@@ -1,15 +1,10 @@
 package aps.infrastructure.persistence.hibernate;
 
-import aps.application.util.XmlFileWriter;
 import aps.domain.model.billingcompany.BillingCompany;
 import aps.domain.model.billingcompany.BillingCompanyRepository;
-import aps.domain.shared.GenericXmlParser;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static aps.domain.shared.ApplicationConstants.BILLING_COMPANY_FILE_BASE_PATH;
-import static aps.domain.shared.ApplicationConstants.XML_EXTENSION;
 
 /**
  * Mock Hibernate implementation of BillingCompanyRepository.

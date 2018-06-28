@@ -1,11 +1,8 @@
 package aps.application.impl;
 
-import aps.application.util.XmlFileReader;
 import aps.domain.model.scrape.DataPair;
-import aps.domain.model.scrape.DataPairs;
 import aps.domain.model.scrape.ScrapeObject;
 import aps.domain.shared.ApsMaps;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,17 +27,24 @@ public class MappingServiceImplTest {
         scrapeObject.setCustomerName("name");
         List<DataPair> dps = new ArrayList<DataPair>();
         DataPair dp1 = new DataPair();
-        dp1.setText("dp1_text");
+        dp1.setText("Statement number");
         dp1.setValue("dp1_value");
         dps.add(dp1);
         DataPair dp2 = new DataPair();
         dp2.setText("Account number");
         dp2.setValue("dp2_value");
         dps.add(dp2);
+        DataPair dp3 = new DataPair();
+        dp3.setText("Not a Field");
+        dp3.setValue("dp3_value");
+        dps.add(dp3);
+        DataPair dp4 = new DataPair();
+        dp4.setText("Electricity used");
+        dp4.setValue("321");
+        dps.add(dp4);
         scrapeObject.setDataPairs(dps);
 
         apsMaps = toTest.getMaps();
-
     }
 
     @Test
@@ -53,11 +57,19 @@ public class MappingServiceImplTest {
         assertEquals("www.test1.com", mappedObject.getBaseUrl());
         assertEquals("surname", mappedObject.getCustomerSurname());
         assertEquals("name", mappedObject.getCustomerName());
-        assertEquals("dp1_text", mappedObject.getDataPairs().get(0).getText());
+        assertEquals("accountNumber", mappedObject.getDataPairs().get(0).getText());
         assertEquals("dp1_value", mappedObject.getDataPairs().get(0).getValue());
-        assertEquals("accountNumber", mappedObject.getDataPairs().get(1).getText());
+        assertEquals("statementNumber", mappedObject.getDataPairs().get(1).getText());
         assertEquals("dp2_value", mappedObject.getDataPairs().get(1).getValue());
+    }
 
+    @Test
+    public void createStatement() {
+
+        ScrapeObject mappedObject = toTest.createMappedObject(scrapeObject);
+        int result = toTest.createStatementFromScrapeObject(mappedObject);
+
+        assertEquals(0, result);
 
     }
 }

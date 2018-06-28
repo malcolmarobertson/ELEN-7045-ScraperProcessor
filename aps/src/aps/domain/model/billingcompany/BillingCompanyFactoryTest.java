@@ -1,5 +1,7 @@
 package aps.domain.model.billingcompany;
 
+import aps.domain.model.statement.StatementType;
+
 public class BillingCompanyFactoryTest {
 
     private static void print(BillingCompany billingCompany){
@@ -13,9 +15,9 @@ public class BillingCompanyFactoryTest {
     }
 
     public static void main(String... args){
-        print(BillingCompanyFactory.createBillingCompanyForMunicipality("Metshimaholo Municipality","www.metsimaholo.gov.za"));
-        print(BillingCompanyFactory.createBillingCompanyForCreditCard("FNB","www.fnb.co.za"));
-        print(BillingCompanyFactory.createBillingCompanyForTelecommunicationServiceProvider("Telkom","www.telkom.co.za"));
+        print(BillingCompanyFactory.createBillingCompany("Metshimaholo Municipality","www.metsimaholo.gov.za",StatementType.MUNICIPALITY));
+        print(BillingCompanyFactory.createBillingCompany("FNB","www.fnb.co.za",StatementType.CREDIT_CARD_PROVIDER));
+        print(BillingCompanyFactory.createBillingCompany("Telkom","www.telkom.co.za",StatementType.TELECOMS));
     }
 
 }

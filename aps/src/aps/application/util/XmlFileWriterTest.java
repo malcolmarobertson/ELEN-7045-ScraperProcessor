@@ -1,16 +1,14 @@
 package aps.application.util;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.sql.rowset.spi.XmlWriter;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class XmlFileWriterTest {
 

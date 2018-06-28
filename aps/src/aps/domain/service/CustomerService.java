@@ -1,9 +1,7 @@
 package aps.domain.service;
 
-import aps.application.ICustomerService;
 import aps.domain.exception.ApsException;
 import aps.domain.model.customer.Customer;
-import aps.domain.model.customer.CustomerBillingAccount;
 import aps.domain.model.customer.CustomerRepository;
 import aps.infrastructure.persistence.hibernate.CustomerRepositoryHibernate;
 

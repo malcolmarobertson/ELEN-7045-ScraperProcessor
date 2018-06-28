@@ -1,7 +1,6 @@
 package aps.domain.model.customer;
 
 import aps.application.ICustomerService;
-import aps.application.impl.CustomerServiceImpl;
 import aps.application.util.EncryptionUtility;
 import aps.domain.exception.ApsException;
 

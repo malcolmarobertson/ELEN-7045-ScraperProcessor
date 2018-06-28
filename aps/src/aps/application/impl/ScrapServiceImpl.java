@@ -2,8 +2,8 @@ package aps.application.impl;
 
 import aps.application.IScrapErrorService;
 import aps.application.IScrapService;
-import aps.application.util.XmlFileReader;
 import aps.application.util.ScrapeResult;
+import aps.application.util.XmlFileReader;
 import aps.domain.shared.ApplicationConstants;
 import aps.domain.shared.ScrapeRequest;
 import aps.domain.shared.ScrapeResponse;
