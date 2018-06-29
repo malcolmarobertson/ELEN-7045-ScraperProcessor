@@ -23,7 +23,7 @@ public class BillingCompanyDataStore {
 
     public BillingCompany getBillingCompanyByURL(String URL){
         for (BillingCompany billingCompany:billingCompanies){
-            if(billingCompany.getBaseUrl().equals(URL)){
+            if(billingCompany.getBaseUrl().equalsIgnoreCase(URL)){
                 return billingCompany;
             }
         }
@@ -32,7 +32,7 @@ public class BillingCompanyDataStore {
 
     public BillingCompany getBillingCompanyByName(String name){
         for (BillingCompany billingCompany:billingCompanies){
-            if(billingCompany.getName().equals(name)){
+            if(billingCompany.getName().equalsIgnoreCase(name)){
                 return billingCompany;
             }
         }

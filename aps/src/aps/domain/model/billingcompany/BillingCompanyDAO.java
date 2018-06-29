@@ -9,14 +9,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 public class BillingCompanyDAO {
-
+    File file = new File("./aps/src/resources/billingcompany/billing-companies-datastorage.xml");
     private BillingCompanyDataStore read(){
 
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(BillingCompanyDataStore.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
-            File file = new File("BillingCompanyDataStore.xml");
+
             if(!file.exists()){
                 return null;
             }
@@ -34,7 +34,7 @@ public class BillingCompanyDAO {
             JAXBContext jaxbContext = JAXBContext.newInstance(BillingCompanyDataStore.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
-            marshaller.marshal(billingCompanyDataStore,new FileOutputStream(new File("BillingCompanyDataStore.xml")));
+            marshaller.marshal(billingCompanyDataStore,new FileOutputStream(file));
         }catch (JAXBException | FileNotFoundException e){
             e.printStackTrace();
         }
@@ -44,15 +44,19 @@ public class BillingCompanyDAO {
     public boolean add(BillingCompany billingCompany){
         boolean status = false;
         BillingCompanyDataStore billingCompanyDataStore = new BillingCompanyDataStore();
-        File file = new File("BillingCompanyDataStore.xml");
         if(file.exists()){
             billingCompanyDataStore = read();
-        }
-        if(!billingCompanyDataStore.contains(billingCompany)) {
+            if(!billingCompanyDataStore.contains(billingCompany)) {
+                billingCompanyDataStore.addBillingCompany(billingCompany);
+                write(billingCompanyDataStore);
+                status = true;
+            }
+        }else {
             billingCompanyDataStore.addBillingCompany(billingCompany);
             write(billingCompanyDataStore);
             status = true;
         }
+
 
         return status;
     }

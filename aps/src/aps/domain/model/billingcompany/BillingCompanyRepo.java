@@ -2,16 +2,19 @@ package aps.domain.model.billingcompany;
 
 public class BillingCompanyRepo implements BillingCompanyRepository {
 
-    BillingCompanyDAO billingCompanyDAO = new BillingCompanyDAO();
+    BillingCompanyDAO billingCompanyDAO;
+    public BillingCompanyRepo(){
+        billingCompanyDAO = new BillingCompanyDAO();
+    }
+
+    public BillingCompanyRepo(BillingCompanyDAO billingCompanyDAO){
+        this.billingCompanyDAO = billingCompanyDAO;
+    }
 
     @Override
     public BillingCompany findByURL(String baseURL) {
-
         BillingCompany billingCompany = billingCompanyDAO.findByURL(baseURL);
-        if (billingCompany == null){
-            return BillingCompanyFactory.getBillingCompany(baseURL);
-        }
-        return null;
+        return billingCompany;
     }
 
     @Override

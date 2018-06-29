@@ -1,33 +1,25 @@
 package aps.domain.model.billingcompany;
 
-import aps.domain.model.statement.StatementType;
+import org.junit.Test;
 
-import static aps.domain.shared.ApplicationConstants.CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE;
-import static aps.domain.shared.ApplicationConstants.MUNICIPALITY_BILLING_COMPANY_TYPE;
-import static aps.domain.shared.ApplicationConstants.TELECOMS_BILLING_COMPANY_TYPE;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class BillingCompanyFactoryTest {
 
-    private static void print(BillingCompany billingCompany) {
-        System.out.println(billingCompany.getId());
-        System.out.println(billingCompany.getName());
-        System.out.println(billingCompany.getBaseUrl());
-        System.out.println(billingCompany.getBillingCompanyType());
-        System.out.println("Scrape Configuration Instance: " + billingCompany.getScrapeConfiguration());
-
+    @Test
+    public void createFactoryMethodTest(){
+        assertTrue("createBillingCompany Telecoms",BillingCompanyFactory.createBillingCompany("","","TELECOMS_BILLING_COMPANY_TYPE") instanceof BillingCompany);
+        assertTrue("createBillingCompany Municipality",BillingCompanyFactory.createBillingCompany("","","MUNICIPALITY_BILLING_COMPANY_TYPE") instanceof BillingCompany);
+        assertTrue("createBillingCopmany Credit Card Provider",BillingCompanyFactory.createBillingCompany("","","CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE") instanceof BillingCompany);
     }
 
-    public static void main(String... args) {
-        print(BillingCompanyFactory.createBillingCompany("Metshimaholo Municipality", "www.metsimaholo.gov.za", MUNICIPALITY_BILLING_COMPANY_TYPE));
-        print(BillingCompanyFactory.createBillingCompany("FNB", "www.fnb.co.za", CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE));
-        print(BillingCompanyFactory.createBillingCompany("Telkom", "www.telkom.co.za", TELECOMS_BILLING_COMPANY_TYPE));
-
-        BillingCompanyDAO billingCompanyDAO = new BillingCompanyDAO();
-
-        billingCompanyDAO.update(BillingCompanyFactory.createBillingCompany("Metshimaholo Municipality", "www.metsimaholo.gov.za", MUNICIPALITY_BILLING_COMPANY_TYPE));
-//        billingCompanyDAO.add(BillingCompanyFactory.createBillingCompany("FNB", "www.fnb.co.za", CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE));
-//        billingCompanyDAO.add(BillingCompanyFactory.createBillingCompany("Telkom", "www.telkom.co.za", TELECOMS_BILLING_COMPANY_TYPE));
-//        System.out.println(billingCompanyDAO.findByURL("www.metsimaholo.gov.za").getName());
+    @Test
+    public void validBillingCompany(){
+        BillingCompany billingCompany = BillingCompanyFactory.createBillingCompany("Telkom","www.Telkom.co.za","TELECOMS_BILLING_COMPANY_TYPE");
+        assertEquals("BillingCompanyURL","www.Telkom.co.za",billingCompany.getBaseUrl());
+        assertEquals("BillingCompanyName","Telkom",billingCompany.getName());
+        assertEquals("BillingCompanyType","TELECOMS_BILLING_COMPANY_TYPE",billingCompany.getBillingCompanyType());
     }
 
 }

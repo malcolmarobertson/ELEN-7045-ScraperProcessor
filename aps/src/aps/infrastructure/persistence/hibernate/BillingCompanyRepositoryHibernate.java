@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * Mock Hibernate implementation of BillingCompanyRepository.
- * The actual data is stored in a map.
+ * The actual data is stored in a xml file.
  */
 public class BillingCompanyRepositoryHibernate implements BillingCompanyRepository {
 
