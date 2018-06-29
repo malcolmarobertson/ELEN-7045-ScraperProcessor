@@ -3,8 +3,13 @@ package aps.domain.model.billingcompany;
 import aps.domain.model.statement.Statement;
 import aps.domain.model.statement.StatementType;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.UUID;
 
+@XmlRootElement(name = "billingCompany")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class BillingCompany {
     private String name;
     private String baseUrl;

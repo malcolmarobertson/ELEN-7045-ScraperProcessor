@@ -1,6 +1,7 @@
 package aps.infrastructure.persistence.hibernate;
 
 import aps.domain.model.billingcompany.BillingCompany;
+import aps.domain.model.billingcompany.BillingCompanyRepo;
 import aps.domain.model.billingcompany.BillingCompanyRepository;
 
 import java.util.HashMap;
@@ -12,39 +13,38 @@ import java.util.Map;
  */
 public class BillingCompanyRepositoryHibernate implements BillingCompanyRepository {
 
-    //Backed up on a database/file
-    private Map<String, BillingCompany> billingCompanyRepo = new HashMap<>();
+    BillingCompanyRepository billingCompanyRepository = new BillingCompanyRepo();
+
 
     @Override
     public BillingCompany findByURL(String baseURL) {
-        return billingCompanyRepo.get(baseURL);
+        return billingCompanyRepository.findByURL(baseURL);
     }
 
     @Override
-    public BillingCompany findByName(String baseURL) {
-        return null;
+    public BillingCompany findByName(String name) {
+        return billingCompanyRepository.findByName(name);
     }
 
     @Override
     public boolean add(BillingCompany billingCompany) {
-        if (billingCompanyRepo.containsKey(billingCompany.getBaseUrl())) {
-            return false;
-        }
-        billingCompanyRepo.put(billingCompany.getBaseUrl(), billingCompany);
-        return true;
+
+        return billingCompanyRepository.add(billingCompany);
     }
 
     @Override
     public boolean delete(BillingCompany billingCompany) {
-        if (billingCompanyRepo.containsKey(billingCompany.getBaseUrl())) {
-            billingCompanyRepo.remove(billingCompany.getBaseUrl());
-            return true;
-        }
-        return false;
+
+        return billingCompanyRepository.delete(billingCompany);
     }
 
     @Override
     public void update(BillingCompany billingCompany) {
-        billingCompanyRepo.replace(billingCompany.getBaseUrl(), billingCompany);
+        billingCompanyRepository.update(billingCompany);
+    }
+
+    @Override
+    public BillingCompany createBillingCompany(String companyName, String baseURL, String billingCompanyType) {
+        return billingCompanyRepository.createBillingCompany(companyName,baseURL,billingCompanyType);
     }
 }

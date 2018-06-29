@@ -12,4 +12,6 @@ public interface BillingCompanyRepository {
 
     public void update(BillingCompany BillingCompany);
 
+    public BillingCompany createBillingCompany(String companyName, String baseURL, String billingCompanyType);
+
 }

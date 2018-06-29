@@ -21,6 +21,13 @@ public class BillingCompanyFactoryTest {
         print(BillingCompanyFactory.createBillingCompany("Metshimaholo Municipality", "www.metsimaholo.gov.za", MUNICIPALITY_BILLING_COMPANY_TYPE));
         print(BillingCompanyFactory.createBillingCompany("FNB", "www.fnb.co.za", CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE));
         print(BillingCompanyFactory.createBillingCompany("Telkom", "www.telkom.co.za", TELECOMS_BILLING_COMPANY_TYPE));
+
+        BillingCompanyDAO billingCompanyDAO = new BillingCompanyDAO();
+
+        billingCompanyDAO.update(BillingCompanyFactory.createBillingCompany("Metshimaholo Municipality", "www.metsimaholo.gov.za", MUNICIPALITY_BILLING_COMPANY_TYPE));
+//        billingCompanyDAO.add(BillingCompanyFactory.createBillingCompany("FNB", "www.fnb.co.za", CREDIT_CARD_PROVIDER_BILLING_COMPANY_TYPE));
+//        billingCompanyDAO.add(BillingCompanyFactory.createBillingCompany("Telkom", "www.telkom.co.za", TELECOMS_BILLING_COMPANY_TYPE));
+//        System.out.println(billingCompanyDAO.findByURL("www.metsimaholo.gov.za").getName());
     }
 
 }
