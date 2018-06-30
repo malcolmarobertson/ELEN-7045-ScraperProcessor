@@ -3,6 +3,7 @@ package aps.application.impl;
 import aps.application.IScrapService;
 import aps.application.util.ScrapeResult;
 import aps.application.util.XmlFileReader;
+import aps.domain.model.customer.CustomerBillingAccount;
 import aps.domain.shared.ApplicationConstants;
 import aps.domain.shared.ScrapeRequest;
 import aps.domain.shared.ScrapeResponse;
@@ -52,5 +53,10 @@ public class ScrapServiceImpl implements IScrapService {
 
     @Override
     public void editScrapScript() {
+    }
+
+    @Override
+    public void scheduleScrapeDates(CustomerBillingAccount customerBillingAccount) {
+        //Calls the Scraper with details to Schedule scraping
     }
 }

@@ -8,5 +8,4 @@ public class DataIntegrityConsistencyError  extends AbstractError {
     public String handleError() {
         return DATA_INTEGRITY_CONSISTENCY;
     }
-
 }

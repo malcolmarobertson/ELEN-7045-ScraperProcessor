@@ -1,13 +1,14 @@
 package aps.domain.model.billingcompany;
 
-import java.util.Date;
+import java.util.List;
 
 /**
  * Class represents all the settings pertaining to Scraper Scheduling that can be configured per BillingCompany.
  */
 public class ScrapeConfiguration {
-    private Date dateFrom;
-    private Date dateTo;
+
+    private List<Integer> scrapeDaysOfMonth;
+    private List<Integer> nonScrapeDaysOfMonth;
     private int statementDayOfMonth;
     private int cycleDays;
     private int leadTimeInDays;
@@ -16,20 +17,20 @@ public class ScrapeConfiguration {
     private int concurrentSessions;
     private int nextScrapeTimestamp;
 
-    public Date getDateFrom() {
-        return dateFrom;
+    public List<Integer> getScrapeDaysOfMonth() {
+        return scrapeDaysOfMonth;
     }
 
-    public void setDateFrom(Date dateFrom) {
-        this.dateFrom = dateFrom;
+    public void setScrapeDaysOfMonth(List<Integer> scrapeDaysOfMonth) {
+        this.scrapeDaysOfMonth = scrapeDaysOfMonth;
     }
 
-    public Date getDateTo() {
-        return dateTo;
+    public List<Integer> getNonScrapeDaysOfMonth() {
+        return nonScrapeDaysOfMonth;
     }
 
-    public void setDateTo(Date dateTo) {
-        this.dateTo = dateTo;
+    public void setNonScrapeDaysOfMonth(List<Integer> nonScrapeDaysOfMonth) {
+        this.nonScrapeDaysOfMonth = nonScrapeDaysOfMonth;
     }
 
     public int getStatementDayOfMonth() {

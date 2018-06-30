@@ -42,6 +42,11 @@ public class ApsServiceImpl implements IApsService {
         return customerService.addCustomerCredential(customer, customerBillingAccount, userName, password);
     }
 
+    @Override
+    public void scheduleScapeDates(CustomerBillingAccount customerBillingAccount) {
+        scrapService.scheduleScrapeDates(customerBillingAccount);
+    }
+
     private String scrapeWebsite(CustomerBillingAccount customerBillingAccount) {
         ScrapeRequest scrapeRequest = new ScrapeRequest();
         //Scraping for the first credential details.
@@ -56,7 +61,8 @@ public class ApsServiceImpl implements IApsService {
         if (scrapeResponse.getScrapeResult().equals(ScrapeResult.SUCCESSFUL)) {
             GenericXmlParser genericXmlParser = new GenericXmlParser(ScrapeObject.class);
             scrapeObject = (ScrapeObject) genericXmlParser.parseScrapXml(scrapeResponse.getXmlResponse());
-            Statement statement = mappingService.createCustomerStatement(scrapeObject, customerBillingAccount.getBillingCompany().getBillingCompanyType());
+            Statement statement = mappingService.createCustomerStatement(scrapeObject,
+                    customerBillingAccount.getBillingCompany().getBillingCompanyType());
 
             //Persist the statement in an xml format.
             statementService.add(statement);
