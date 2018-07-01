@@ -12,16 +12,16 @@ public class ApplicationConstants {
     /**
      * Sample Scrape Response xml file paths
      */
-    public static final String VALID_TELKOM_SCRAPE_FILE = "src/resources/scrape/telkom-scrape.xml";
-    public static final String INVALID_CITY_OF_JOBURG_SCRAPE_FILE = "src/resources/scrape-error/joburg-scrape-error.xml";
-    public static final String INVALID_EDGARS_SCRAPE_FILE = "src/resources/scrape-error/edgars-scrape-error.xml";
-    public static final String SCRAPE_ERROR_FILE_BASE_PATH = "src/resources/scrape-error/";
-    public static final String BILLING_COMPANY_FILE_BASE_PATH = "src/resources/billingcompany/";
-    public static final String SCRAPE_FILE_BASE_PATH = "src/resources/scrape/";
-    public static final String CUSTOMER_FILE_BASE_PATH = "src/resources/customer/";
-    public static final String STATEMENT_FILE_BASE_PATH = "src/resources/statement/";
-    public static final String SCRAP_SUCCESS_TEST_FILE = "src/resources/scrape/test-success-scrape.xml";
-    public static final String SCRAP_FAILURE_TEST_FILE = "src/resources/scrape/test-failure-scrape.xml";
+    public static final String VALID_TELKOM_SCRAPE_FILE = "resources/scrape/telkom-scrape.xml";
+    public static final String INVALID_CITY_OF_JOBURG_SCRAPE_FILE = "resources/scrape-error/joburg-scrape-error.xml";
+    public static final String INVALID_EDGARS_SCRAPE_FILE = "resources/scrape-error/edgars-scrape-error.xml";
+    public static final String SCRAPE_ERROR_FILE_BASE_PATH = "resources/scrape-error/";
+    public static final String BILLING_COMPANY_FILE_BASE_PATH = "resources/billingcompany/";
+    public static final String SCRAPE_FILE_BASE_PATH = "resources/scrape/";
+    public static final String CUSTOMER_FILE_BASE_PATH = "resources/customer/";
+    public static final String STATEMENT_FILE_BASE_PATH = "resources/statement/";
+    public static final String SCRAP_SUCCESS_TEST_FILE = "resources/scrape/test-success-scrape.xml";
+    public static final String SCRAP_FAILURE_TEST_FILE = "resources/scrape/test-failure-scrape.xml";
     public static final String XML_EXTENSION = ".xml";
 
     /**

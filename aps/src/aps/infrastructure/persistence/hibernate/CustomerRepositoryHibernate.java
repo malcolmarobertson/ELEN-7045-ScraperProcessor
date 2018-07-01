@@ -8,6 +8,7 @@ import aps.domain.model.customer.CustomerRepository;
 import aps.domain.shared.GenericXmlParser;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.UUID;
 
 import static aps.domain.shared.ApplicationConstants.CUSTOMER_FILE_BASE_PATH;
@@ -28,8 +29,11 @@ public class CustomerRepositoryHibernate implements CustomerRepository {
 
     @Override
     public Customer findByUserName(String username) throws ApsException {
-        String filePath = CUSTOMER_FILE_BASE_PATH + username.toLowerCase() + XML_EXTENSION;
         genericXmlParser = new GenericXmlParser(Customer.class);
+
+        String filePath = Paths.get("").toAbsolutePath().toString()
+                + File.separator + CUSTOMER_FILE_BASE_PATH
+                + File.separator + username.toLowerCase() + XML_EXTENSION;
         File userFile = new File(filePath);
 
         if (!userFile.exists()) {
@@ -45,7 +49,9 @@ public class CustomerRepositoryHibernate implements CustomerRepository {
     public void add(Customer customer) {
         genericXmlParser = new GenericXmlParser(Customer.class);
         String xmlScrapeErrorEntry = genericXmlParser.marshallScrapXml(customer);
-        String filePath = CUSTOMER_FILE_BASE_PATH + customer.getApsUserName() + XML_EXTENSION;
+        String filePath = Paths.get("").toAbsolutePath().toString()
+                + File.separator + CUSTOMER_FILE_BASE_PATH
+                + File.separator + customer.getApsUserName().toLowerCase() + XML_EXTENSION;
         XmlFileWriter.writeFile(filePath, xmlScrapeErrorEntry);
     }
 
